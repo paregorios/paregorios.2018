@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escape from PGeo, part deux | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2008/02/escape-from-pgeo-part-deux/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../right-to-left-in-blogger/" title="right-to-left in blogger" type="text/html">
+<link rel="next" href="../planet-atlantides-feed-aggregators-for/" title="Planet Atlantides: Feed Aggregators for Ancient Studies" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Escape from PGeo, part deux">
+<meta property="og:url" content="http://paregorios.org/posts/2008/02/escape-from-pgeo-part-deux/">
+<meta property="og:description" content="Last week, I posted a short bit on using ogrinfo and ogr2ogr to convert a layer in an ESRI personal geodatabase to a shapefile. Today we'll automate the process with some python programming to extract">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2008-02-04T18:32:00-06:00">
+<meta property="article:tag" content="tools">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Escape from PGeo, part deux</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2008-02-04T18:32:00-06:00" itemprop="datePublished" title="2008-02-04 18:32">2008-02-04 18:32</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Last week, I posted a short bit on using <a href="http://www.gdal.org/ogr/ogrinfo.html">ogrinfo</a> and <a href="http://www.gdal.org/ogr/ogr2ogr.html">ogr2ogr</a> to <a href="http://horothesia.blogspot.com/2008/01/escape-from-pgeo.html">convert a layer in an ESRI personal geodatabase to a shapefile</a>. Today we'll automate the process with some python programming to extract all layers (regardless of geometry) from an arbitrary pgeo file.<br><br>The following examples assume you're running python within an <a href="http://fwtools.maptools.org/">FWTools</a> shell.<br><br><span style="font-weight: bold;">Get a list of layers</span><br><br>The first challenge is capturing the output from <span style="font-style: italic;">ogrinfo</span> (the list of layers) into a form we can parse. Python gives us a number of methods for issuing commands to the hosting system environment. The one to use here is <a href="http://docs.python.org/lib/os-newstreams.html#l2h-2616">popen3 from the os module</a> since it will let us invoke <span style="font-style: italic;">ogrinfo</span> and then work with its output (specifically stdout) as a file-like object in code. We'll read the output lines into <a href="http://docs.python.org/tut/node5.html#SECTION005140000000000000000">a python list</a> for subsequent processing.<br></p>
+<pre>&gt;&gt;&gt; import os<br>&gt;&gt;&gt; infilename = "ItAntMapping.mdb"<br>&gt;&gt;&gt; child_stdin, child_stdout, child_stderr = os.popen3("ogrinfo %s" % infilenam<br>e)<br>&gt;&gt;&gt; output = child_stdout.readlines()<br>&gt;&gt;&gt; output<br>["INFO: Open of `ItAntMapping.mdb'\n", "      using driver `PGeo' successful.\n"<br>, '1: whollyimprecise\n', '2: placesAdded\n', '3: placesEstimated\n', '4: places<br>Solid\n', '5: stretchesDangling\n', '6: stretchesFloating\n', '7: stretchesSolid<br>\n', '8: tpPoints\n', '9: stretchesUnlocated\n']<br></pre>Now we want to cleanup this list of lines so we're left with a list of layer names (no prefixed numbers, no newline characters, no strings other than layer names). We'll iterate through each line in the output and, if a python regular expression designed to differentiate between layer names and <span style="font-style: italic;">ogrinfo</span>'s other outputs finds a match, we'll copy the relevant portion of the matched line into a new list of "layers". We'll need the python regular expression module (re) for this step.<br><br>In pseudocode:<br><ul>
+<li>set up a regular expression to match a line that begins with a string of digits, a colon, and a space, followed by a string of arbitrary length and a newline (group the string that is the layer name)<br>
+</li>
+<li>create a new list to hold the layer names<br>
+</li>
+<li>for each line in the output list:<br><ul>
+<li>attempt a regular expression match<br>
+</li>
+<li>if matched: append the contents of the group (the layer name) to the layers list</li>
+</ul>
+</li>
+</ul>In python:<br><pre>import re<br>&gt;&gt;&gt; regex = re.compile('^\d+: (.*)\n')<br>&gt;&gt;&gt; layers = []<br>&gt;&gt;&gt; for line in output:<br>...     m = regex.match(line)<br>...     if m:<br>...         layers.append(m.groups()[0])<br>...<br>&gt;&gt;&gt; layers<br>['whollyimprecise', 'placesAdded', 'placesEstimated', 'placesSolid', 'stretchesD<br>angling', 'stretchesFloating', 'stretchesSolid', 'tpPoints', 'stretchesUnlocated<br>']<br></pre>
+<span style="font-weight: bold;">Extract each named layer</span><br><br>Now the easy part. Iterate through the list of layers, invoking <span style="font-style: italic;">ogr2ogr</span> for each layer. We don't need to capture any i/o streams this time, so we'll just use the plain-vanilla <span style="font-style: italic;">system </span>method.<br><pre>&gt;&gt;&gt; for layer in layers:<br>...     os.system('ogr2ogr -f "ESRI Shapefile" %s.shp ItAntMapping.mdb %s' % (la<br>yer, layer))<br>...<br>&gt;&gt;&gt; ^Z<br>C:\Users\Tom\Documents\itins&gt;dir *.shp<br>Volume in drive C has no label.<br>Volume Serial Number is 2C47-654D<br><br>Directory of C:\Users\Tom\Documents\itins<br><br>02/04/2008  01:03 PM               156 placesAdded.shp<br>02/04/2008  01:03 PM             7,464 placesEstimated.shp<br>02/04/2008  01:03 PM            85,780 placesSolid.shp<br>02/04/2008  01:03 PM               100 stretchesDangling.shp<br>02/04/2008  01:03 PM               100 stretchesFloating.shp<br>02/04/2008  01:03 PM            62,420 stretchesSolid.shp<br>02/04/2008  01:03 PM             1,684 stretchesUnlocated.shp<br>02/04/2008  01:03 PM               100 whollyimprecise.shp<br>            8 File(s)      157,804 bytes<br>             0 Dir(s)  172,207,665,152 bytes free<br></pre>
+<span style="font-weight: bold;">Package up the code</span><br><br>I've incorporated these steps into <a href="http://homepages.nyu.edu/%7Ete20/code/free.py">a python script</a>, along with some error handling and usage methods. It's a bit more generalized than what's shown above. Enjoy, and let me know about mistakes or suggestions for improvement.
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/tools/" rel="tag">tools</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../right-to-left-in-blogger/" rel="prev" title="right-to-left in blogger">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../planet-atlantides-feed-aggregators-for/" rel="next" title="Planet Atlantides: Feed Aggregators for Ancient Studies">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

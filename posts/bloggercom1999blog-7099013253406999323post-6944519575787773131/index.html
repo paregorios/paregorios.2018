@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pleiades by Country: Iraq and Syria | paregorios.org</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/bloggercom1999blog-7099013253406999323post-6944519575787773131/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<meta name="robots" content="noindex">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Pleiades by Country: Iraq and Syria">
+<meta property="og:url" content="http://paregorios.org/posts/bloggercom1999blog-7099013253406999323post-6944519575787773131/">
+<meta property="og:description" content="I was recently asked by a colleague how many &quot;Iraqi and Syrian places&quot; there are in Pleiades. Pleiades is not set up to automatically answer that kind of question; indeed we don't store modern nationa">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2014-06-30T23:17:00-05:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../about/">About</a>
+                </li>
+<li>
+<a href="../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Pleiades by Country: Iraq and Syria</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2014-06-30T23:17:00-05:00" itemprop="datePublished" title="2014-06-30 23:17">2014-06-30 23:17</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>I was recently asked by a colleague how many "Iraqi and Syrian places" there are in Pleiades. Pleiades is not set up to automatically answer that kind of question; indeed we don't store modern national boundaries in the system at all. So, I thought I'd try to start a series of blog posts in which I work through getting the answer. Hopefully along the way we'll observe some useful things about the structure of Pleiades data and develop some ideas about how to exploit it and make it more useful.<br><br>First, a caveat. The structure of the Pleiades dataset is not simple, so the first rule of GIS applies here (as elsewhere): get to know your dataset before you draw conclusions from it. For Pleiades, essential reading includes: "<a href="http://pleiades.stoa.org/help/pleiades-data-model">Pleiades Data Model</a>" and <a href="http://pleiades.stoa.org/downloads">the "Pleiades Downloads" page</a>, as well as the README file for any dataset one downloads.<br><br>First, we need data. For the Pleiades place resources, we'll grab the latest nightly "dump" file, in CSV format:<br><br>curl -O http://atlantides.org/downloads/pleiades/dumps/pleiades-places-latest.csv.gz<br><br>For modern countries, we'll grab the latest version (March 2013) of the US State Department's Detailed World Polygons file, derived from the Large Scale International Boundaries (LSIB) dataset.<br><br><br></p>
+<div class="p1">curl -O https://hiu.state.gov/data/EurasiaAfrica_LSIBPolygons_2013March08_HIU_USDoS.zip</div>
+<div class="p1"><br></div>
+<div class="p1">If we pull both of these datasets into a GIS (I'm using QGIS) using their native geographic reference system (both are in WGS-84), our first order of business is obvious: discard Pleiades data that is not in Iraq. </div>
+<div class="p1"><br></div>
+<div class="p1">Since <a href="https://hiu.state.gov/data/data.aspx">the State Department claims online that the LSIB boundary data is accurate to within "a couple of kilometers"</a> and I don't have any more accurate metadata for these boundaries, I'd like to buffer the Iraq country polygon by 5 kilometers before running an intersection selection on the Pleiades data. To do this easily in QGIS (with the vector geoprocessing buffer tool), I need first to reproject both datasets into a coordinate system that uses meters, rather than degrees. Not wanting to spend to much time pondering, I did a quick web search, came across <a href="http://www.pm4gis.org/downloads/iraqi-projections">Dwayne Wilkins' Iraqi GIS Projections page</a>, and picked the <a href="https://30dfd0d9-a-6e7954de-s-sites.googlegroups.com/a/pm4gis.org/pm4gis/downloads/iraqi-projections/UTM%25252038N.jpg">UTM 38N (WGS-84) projection</a>, which is already provide along with so many others in QGIS. In saving off the projected version of the country boundaries, I selected just the polygon for Iraq in order to save my self a bit of time later. Here are the resulting datasets in their new cartographic projection (zoomed in a general way to southwest Asia):</div>
+<div class="p1"><br></div>
+<div class="p1">Since we're now in a projection that uses meters, it's an easy matter to set the parameters in the buffer tool so that we get a 5km exterior buffer around the country polygon:</div>
+<div class="p1"><br></div>
+<div class="p1">In QGIS, vector -&gt; geoprocessing -&gt; intersect lets us select just those Pleiades places that fall within that buffer polygon (446 point features, including at least one that certainly falls in modern Syria and another in Iran, but let's not worry about that for the moment):</div>
+<div class="p1"><br></div>
+<div class="p1">It's at this point that we have to fall back on our knowledge of the Pleiades dataset. Pleiades is in the first instance a historical and archaeological gazetteer, not a database of extant archaeological sites. </div>
+<div class="p1"><br></div>
+<div class="p1"><br></div>
+<div class="p1"><br></div>
+<div class="p1"><br></div>
+<div class="p1"><br></div>
+<div class="p1"><br></div>
+    </div>
+    <aside class="postpromonav"><nav></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

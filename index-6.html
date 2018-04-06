@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Tom Elliott's blog and personal site">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>paregorios.org (old posts, page 6) | paregorios.org</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="http://paregorios.org/index-6.html">
+<link rel="prev" href="index-7.html" type="text/html">
+<link rel="next" href="index-5.html" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="about/">About</a>
+                </li>
+<li>
+<a href="archive.html">Archive</a>
+                </li>
+<li>
+<a href="categories/">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+
+    
+
+
+    
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/escape-from-pgeo/" class="u-url">Escape from PGeo</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/escape-from-pgeo/" rel="bookmark"><time class="published dt-published" datetime="2008-01-31T21:49:00-06:00" title="2008-01-31 21:49">2008-01-31 21:49</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <span style="font-weight: bold;">Scenario</span><br><br>There's spatial data you want in an "<a href="http://www.esri.com/software/arcgis/geodatabase/index.html">ESRI Personal Geodatabase</a>" file, but you don't have any ESRI tools. How do you get it out?<br><br><span style="font-weight: bold;">One short answer</span><br><ul>
+<li>Download and install <a href="http://fwtools.maptools.org/">Frank Warmerdam's FWTools</a>
+</li>
+<li>Start the FWTools shell and invoke <a href="http://www.gdal.org/ogr/ogrinfo.html">ogrinfo</a> (to explore the content) and <a href="http://www.gdal.org/ogr/ogr2ogr.html">ogr2ogr</a> (to extract it to <a href="http://www.gdal.org/ogr/ogr_formats.html">other formats</a>)</li>
+</ul>
+<span style="font-weight: bold;">One how-to (steps verified on Windows Vista)</span><br><br><span style="font-style: italic;">Explore the content with ogrinfo</span><br><pre>C:\Users\Tom\Documents\itins&gt;ogrinfo ItAntMapping.mdb<br>INFO: Open of `ItAntMapping.mdb'<br>     using driver `PGeo' successful.<br>1: whollyimprecise<br>2: placesAdded<br>3: placesEstimated<br>4: placesSolid<br>5: stretchesDangling<br>6: stretchesFloating<br>7: stretchesSolid<br>8: tpPoints<br>9: stretchesUnlocated<br></pre>
+<span style="font-style: italic;">Extract a layer to an ESRI shapefile</span><br><pre>C:\Users\Tom\Documents\itins&gt;ogr2ogr -f "ESRI Shapefile" itant-solidplaces.shp I<br>tAntMapping.mdb placesSolid</pre>
+<span style="font-style: italic;">Verify results</span><br><pre>C:\Users\Tom\Documents\itins&gt;dir itant-solidplaces.*<br>Volume in drive C has no label.<br>Volume Serial Number is 2C47-654D<br><br>Directory of C:\Users\Tom\Documents\itins<br><br>01/31/2008  04:00 PM         1,141,669 itant-solidplaces.dbf<br>01/31/2008  04:00 PM               147 itant-solidplaces.prj<br>01/31/2008  04:00 PM            85,780 itant-solidplaces.shp<br>01/31/2008  04:00 PM            24,580 itant-solidplaces.shx<br>              4 File(s)      1,252,176 bytes<br>              0 Dir(s)  172,586,586,112 bytes free<br></pre>
+<span style="font-weight: bold;">Coming soon</span><br><br>A sequel, wherein we write a python script to automate the extraction of multiple feature classes (layers, themes) with different geometries from a single geodatabase file to multiple shapefiles.<br><br><span style="font-weight: bold;">Thanks</span><br><br><a href="http://zcologia.com/news/about">Sean</a> and <a href="http://hobu.biz/">Howard</a>.
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/nssdc-id-1958-001a/" class="u-url">NSSDC ID: 1958-001A</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/nssdc-id-1958-001a/" rel="bookmark"><time class="published dt-published" datetime="2008-01-31T16:26:00-06:00" title="2008-01-31 16:26">2008-01-31 16:26</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div style="float: right;">
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://www.nasa.gov/mission_pages/explorer/launch.html"><img style="margin: 0pt 0pt 10px 10px; cursor: pointer;" src="http://4.bp.blogspot.com/_tcSZVmUJxp0/R6Hvd0k5nuI/AAAAAAAAAAU/vYryUgRiXrw/s200/explorerlaunch.jpg" alt="" id="BLOGGER_PHOTO_ID_5161669943551958754" border="0"></a><p style="text-align: center; font-size: 0.6em; font-style: italic;">Image: NASA</p>
+</div>
+<br>The <a href="http://nssdc.gsfc.nasa.gov/nmc/masterCatalog.do?sc=1958-001A">catalog entry</a> blandly reads:<br><blockquote>Explorer 1 was the first successfully launched U. S. spacecraft. Launched late on 31 January 1958 ... on an adapted Jupiter-C rocket ... Explorer 1 was the first spacecraft to successfully detect the durably trapped radiation in the Earth's magnetosphere</blockquote>It was a real pleasure to read John Noble Wilford's piece in Tuesday's NYT ("<a href="http://www.nytimes.com/2008/01/29/science/space/29space.html">Remembering When U.S. Finally (and Really) Joined the Space Race</a>") on the significance and impact of the Explorer launch. His recap of the events and efforts leading up to <a href="http://www.nasm.si.edu/exhibitions/GAL100/images/exp1team.jpg">the jubilant press-conference picture</a> -- the one in which von Braun, Pickering and Van Allen triumphantly hold up a model of the satellite, and which for some reason the Times didn't run a copy of online -- caught me emotionally off guard.<br><br>Like so many of my peers, I've harbored, since childhood, a soft spot for the romance of space exploration. Part of its enduring infectiousness, I suppose, is its seamless blend of ethereal outlandishness and gritty mundanity. This is a heady brew, distilled from reality, promulgated by von Braun and others, and still shaping U.S. space policy (see <a href="http://www.nytimes.com/2007/11/18/books/review/Roland-t.html">Alex Roland's quasi-review</a> of Michael Neufeld's <span style="font-style: italic;">Von Braun: Dreamer of Space, Engineer of War</span>, Knopf, 2007; <a href="http://worldcat.org/isbn/9780307262929">ISBN: 9780307262929</a>). From time to time, working on projects we cared about, we've all felt something like what Wilford's subjects (the Redstone/Explorer teams) were feeling in the run-up to that launch: all that hard work and those late nights as the team pulled together (and threatened to fly apart) under the pressure of the deadlines and the ambitions and the sheer challenge of what you were trying to do.<br><br>And, oh, what they were trying to do ...<br><br>These are just two examples of <a href="http://topics.nytimes.com/top/news/science/topics/space/index.html?scp=1-spot&amp;sq=space+&amp;st=nyt">some great space reporting in the Times</a> this past year, both presentist and retrospective. There was also <a href="http://www.nytimes.com/2007/09/25/science/space/25sput.html">Wilford's treatment of the Sputnik anniversary</a> (25 September 2007) and <a href="http://www.nytimes.com/2007/10/21/nyregion/nyregionspecial2/21viewct.html">Christine Woodside's first-siting story</a> (21 October 2007). And, also in the big space issue on 25 September, there was Dennis Overbye's poignant essay "<a href="http://www.nytimes.com/2007/09/25/science/space/25cosm.html">One Giant Leap, Followed by Baby Steps</a>," which did feature another amazing photograph:<br><blockquote>There, on a pillar of violence, is your dream of transcendence, of freedom, of escape from killer rocks in the sky, boiling oceans or whatever postmodern plague science comes up with. Of galactic immortality.<br>
+</blockquote>There's been alot of retrospective, and hooplah, here in <a href="http://en.wikipedia.org/wiki/Huntsville,_Alabama">Huntsville</a> during the run-up to this, the 50th anniversary of the U.S. entry into space. People who've lived or visited here know just how closely bound to space and rocketry our sense of place and community identity are. This got a bit easier to explain to outsiders when Shaila Dawan's "<a href="http://www.nytimes.com/2007/12/31/us/31huntsville.html">When the Germans, and Rockets, Came to Town</a>" ran in the NYT on 31 December 2007. Although I must point out ... peanuts have never been a big crop around here. For 1950, try cotton.<br><br>Locally, the <a href="http://www.al.com/huntsvilletimes/">Huntsville Times</a> has been reprinting historic, space-related front pages on a daily basis. There's also been some interesting original reporting, like:<br><ul>
+<li><a href="http://www.al.com/news/huntsvilletimes/index.ssf?/base/news/1201688165113390.xml&amp;coll=1">Mike Marshall on an honorific for the von Braun team</a></li>
+<li><a href="http://www.al.com/news/huntsvilletimes/index.ssf?/base/news/1201688220113390.xml&amp;coll=1">Patricia McCarter on efforts to honor "the man behind Sputnik"</a></li>
+</ul>The <a href="http://us50thspace.com/">50th Anniversary website</a> provides plenty more of this sort of thing (remembrances, audio, video, images), and also includes information about the <a href="http://www.usspace50.com/">America in Space Technical Symposium</a> going on today and <a href="http://www.al.com/news/huntsvilletimes/index.ssf?/base/news/1201774599162280.xml&amp;coll=1">the gala celebration tonight</a> (purportedly to be streamed live at <a href="http://www.al.com/">al.com</a>).<br><br>I think I'll put on my propeller beanie and <a href="http://www.meetataromas.com/">head down to Pete's</a>. Maybe he's brewing Rocket City Blend today ...<br><a href="http://www.nytimes.com/2007/11/18/books/review/Roland-t.html"></a>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/podcasts-at-last/" class="u-url">Podcasts, at last</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/podcasts-at-last/" rel="bookmark"><time class="published dt-published" datetime="2008-01-31T11:21:00-06:00" title="2008-01-31 11:21">2008-01-31 11:21</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I've been wondering for a long time -- admittedly without yet having personally done anything about it -- why so few conference papers and lectures in ancient studies seem to get live-streamed or retrospectively web-cast.<br><br>Well, hats off to <span class="style24">Kostis Kourelis, </span><span class="style24">                     Lita Tzortzopoulou-Gregory and their panelists in Chicago! They've posted <a href="http://www.squinch.und.edu/PodCasts.html">podcasts (with print abstracts) of their entire panel</a> from the 2008 AIA Meetings on "</span><span class="style34">The Archaeology of Xenitia: Greek Immigration and Material Culture." Now those who couldn't afford to go to the meetings, or had good personal reasons not to, can experience these papers. Moreover, the papers themselves now have a citeable, scholarly avatar.<br><br><span style="font-weight: bold;">Attention 2009 AIA and APA panel organizers:</span> let's see how many panels we can podcast. Since I'm co-organizing <a href="http://www.currentepigraphy.org/2008/01/16/cfp-last-chance-the-publication-and-study-of-inscriptions-in-the-age-of-the-computer/">the ASGLE panel</a>, I'll have to put up or shut up myself.<br><br>My only criticism of the Xenitia podcasts: no license. What can I do or not do with these papers and their content? For next year, we'll want to work such details out in advance with our presenters.<br><br>Thanks to <a href="http://mediterraneanworld.typepad.com/the_archaeology_of_the_me/">Bill Caraher</a> for <a href="http://ancientworldbloggers.blogspot.com/2008/01/aia-podcasts.html">the tip by way of AWBG</a>.<br></span></p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/new-colleague-chuck-jones/" class="u-url">New Colleague: Chuck Jones</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/new-colleague-chuck-jones/" rel="bookmark"><time class="published dt-published" datetime="2008-01-29T18:34:00-06:00" title="2008-01-29 18:34">2008-01-29 18:34</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>The <a href="http://blegen.blogspot.com/2008/01/changes-head-librarian-of-carl-w-blegen.html">word</a> is on the street: <a href="http://oi.uchicago.edu/OI/DEPT/RA/ABZU/Charles_E_Jones_CV.HTML">Chuck Jones</a> will start work as the head librarian at <a href="http://www.nyu.edu/isaw">ISAW</a> in March. We're batting around various initiatives already, so if there's something you think that ISAW should be doing (at the intersection of digital scholarship, libraries and ancient studies),<br>let us hear about it.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/is-uk-government-out-to-get-me/" class="u-url">Is the UK Government Out to Get Me?</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/is-uk-government-out-to-get-me/" rel="bookmark"><time class="published dt-published" datetime="2008-01-22T16:57:00-06:00" title="2008-01-22 16:57">2008-01-22 16:57</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Just when I started focusing serious mental concentration on the issue of long-term archival arrangements for <a href="http://pleiades.stoa.org">Pleiades</a> data output, <a href="http://www.antiquist.org/blog/2007/06/18/ahrc-funding-cuts-an-open-letter/">the UK cut funding for the Arts and Humanities Data </a>Service. Now, one of the online resources that has been most influential on my thinking about <span style="font-weight: bold;">how</span> to do online resources for ancient studies is under funding threat: the <a href="http://www.finds.org.uk/">Portable Antiquities Scheme</a>. And just when we were gearing up for some serious interoperation. I'll let Alun Salt give you <a href="http://archaeoastronomy.wordpress.com/2008/01/19/the-portable-antiquities-scheme-and-the-indifference-of-government/">all the details</a>.<br><br>I'm going to go put on my Grumpy shirt and cross my fingers ...<br><br>Yes, I know I'm an American and our project is spearheaded by American institutions. But we all study antiquity. And we all collaborate.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/traveling-with-demetrios-of-skepsis/" class="u-url">Traveling with Demetrios of Skepsis</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/traveling-with-demetrios-of-skepsis/" rel="bookmark"><time class="published dt-published" datetime="2008-01-21T15:54:00-06:00" title="2008-01-21 15:54">2008-01-21 15:54</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I've known about <a href="http://hestieia.wordpress.com/about/">Alexandra Trachsel</a>'s project on <a href="http://hestieia.wordpress.com/biographical-details-about-demetrios/">Demetrios of Skepsis</a> for some time (we hope <a href="http://pleiades.stoa.org/">Pleiades</a> will provide the raw data for maps she'll need), but it was only today that I stumbled across (by way of a link report for Pleiades from <a href="https://www.google.com/webmasters/tools/siteoverview">Google's Webmaster Tools</a>) her <a href="http://hestieia.wordpress.com/" title="Alexandra Trachsel's Traveling with Demetrios of Skepsis">interesting blog</a>. One finds more there than meta for her project, especially interesting thoughts and reactions to new trends and reports in digital publishing and digital humanities research.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/ancient-gazetteergeodata-builders-unite/" class="u-url">Ancient Gazetteer/Geodata Builders, Unite!</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/ancient-gazetteergeodata-builders-unite/" rel="bookmark"><time class="published dt-published" datetime="2008-01-21T15:09:00-06:00" title="2008-01-21 15:09">2008-01-21 15:09</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I keep running into more and more examples of people or projects building interesting and useful datasets/gazetteers for the ancient world. Maybe we should be talking to each other in a more regular and organized fashion?<br><br>There are, of course, the big digital gazetteers (compiled from multiple sources) that incorporate some ancient sites (e.g., the open-access <a href="http://www.alexandria.ucsb.edu/gazetteer/">Alexandria Digital Library Gazetteer</a> and <a href="http://www.geonames.org/">GeoNames</a> and the proprietary <a href="http://www.getty.edu/research/conducting_research/vocabularies/tgn/about.html">Getty Thesaurus of Geographic Names</a>). But there are also established academic/historical projects like the <a href="http://www.fas.harvard.edu/%7Echgis/">China Historical GIS</a> (unfortunately <a href="http://www.fas.harvard.edu/%7Echgis/data/chgis/downloads/v4/">locked away from the geoweb by its license</a>). Some other academic projects focus on the capture of metadata (including spatial information) about archaeological surveys, digs, bibliography and more (for example, <a href="http://www.fastionline.org/">Fasti Online</a>, the <a href="http://cgma.depauw.edu/MAGIS/">Mediterranean Archaeological GIS</a>, the <a href="http://www.finds.org.uk">Portable Antiquities Scheme</a>, the <a href="http://tayproject.org/">TAY Project: Archaeological Settlements of Turkey</a>, and some of the vast array of projects cataloged by the <a href="http://www.ecai.org">Electronic Cultural Atlas Initiative</a> over the last decade).<br><br>Then there are the folks building teaching and reference datasets (e.g., <a href="http://bbs.keyhole.com/ubb/showflat.php?Cat=0&amp;Board=EarthHistory&amp;Number=425243&amp;Searchpage=1&amp;Main=425243&amp;Words=+scaife&amp;topic=&amp;Search=true#Post425243">Ross Scaife's Bronze Age Crete KML</a> for Google Earth), as well as those developing regional gazetteers for academic purposes (I just noticed Bill Caraher's mention of his plans to co-author with David Pettegrew <a href="http://mediterraneanworld.typepad.com/the_archaeology_of_the_me/2008/01/archaeology-pos.html">a gazeteer of the Eastern Corinthia</a> -- hint: search in page for "gazetteer").<br><br>If I were going to try to gather some information about projects creating academic historical "gazetteers" or "geographic datasets" (focused on "ancient" times), what questions should I be asking? Should your project be listed?<br><br>If you have thoughts on this, please post a comment or a blog post linking back to this one.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/shapely-python-package-for-programming/" class="u-url">Shapely: A Python Package for Programming with 2D Geospatial Geometries</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/shapely-python-package-for-programming/" rel="bookmark"><time class="published dt-published" datetime="2008-01-18T21:46:00-06:00" title="2008-01-18 21:46">2008-01-18 21:46</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <a href="http://zcologia.com/sgillies/">Sean</a> deserves a big hand, and a break: he's just released <a href="http://pypi.python.org/pypi/Shapely">Shapely 1.0</a>.<br><br><span style="font-weight: bold;">What:</span><br><br>It's a package of <a href="http://www.python.org/">python</a> code for manipulating and analyzing two-dimensional geospatial geometries. Shapely lets you calculate unions, intersections and differences of two-dimensional shapes, thereby letting you determine whether these shapes intersect, touch or contain one another.<br><br><span style="font-weight: bold;">Who:</span><br><br>Sean had alot of great help (see <a href="http://pypi.python.org/pypi/Shapely#credits">Shapely Credits</a>). Some of Sean's work on Shapely was supported by our <a href="http://www.neh.gov">NEH</a> grant for <a href="http://pleiades.stoa.org">Pleiades</a>.<br><br><span style="font-weight: bold;">Why:</span><br><br>Why would humanists care about (or help fund) such a code library?<br><br>I'll give you the Pleiad-o-centric part of the answer:  information discovery is an essential component of humanities research, and geography is often highly relevant. What's near what? What's within something else? Or within a certain distance of something else? Are there Roman-era weapon finds cataloged by the <a href="http://www.finds.org.uk/">Portable Antiquities Scheme</a> that fall within 2km of a Roman-era fort registered by Pleiades? Are there excavations documented by <a href="http://www.fastionline.org/">Fasti Online</a> or regional surveys cataloged by <a href="http://cgma.depauw.edu/MAGIS/">MAGIS</a> that correlate with features cataloged in Pleiades? (If so, dynamically provide Pleiades users with links to them as they browse).<br><br>Shapely gives us what we didn't have: a tested, free, open-source, pythonic base for building these kinds of correlation functions and cross-project interoperability calculations into Pleiades and, hopefully, helping others do the same.
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/john-matthews-theophanes-wins-breasted/" class="u-url">John Matthews' Theophanes wins Breasted Prize</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/john-matthews-theophanes-wins-breasted/" rel="bookmark"><time class="published dt-published" datetime="2008-01-18T20:18:00-06:00" title="2008-01-18 20:18">2008-01-18 20:18</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Thanks to <a href="http://groups.yahoo.com/group/ANE-2/message/7151">Chuck's post on ANE-2</a>, I just learned that the <a href="http://www.historians.org/">AHA</a> has awarded the 2007 <a href="http://www.historians.org/prizes/awarded/BreastedWinner.htm">James Henry Breasted Prize</a> to:<br></p>
+<ul><li>
+<a href="http://www.yale.edu/classics/faculty/matthews_j.html">John F. Matthews</a>, <span style="font-style: italic;">The Journey of Theophanes: Travel, Business and Daily Life in the Roman East</span>, Yale, 2006, ISBN: 9780300108989 (<a href="http://yalepress.yale.edu/yupbooks/book.asp?isbn=9780300108989">publisher's page</a>; <a href="http://ccat.sas.upenn.edu/bmcr/2007/2007-02-31.html">BMCR Review by R. Talbert</a>)<br>
+</li></ul>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2008/01/blunt-instrument-trauma-or-why-you/" class="u-url">Blunt Instrument Trauma (or why you haven't heard from me lately)</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2008/01/blunt-instrument-trauma-or-why-you/" rel="bookmark"><time class="published dt-published" datetime="2008-01-18T17:49:00-06:00" title="2008-01-18 17:49">2008-01-18 17:49</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <span style="font-style: italic; color: rgb(255, 102, 102);">Rant advisory</span><br><br>Rob Frieden wants us to "<a href="http://telefrieden.blogspot.com/2007/06/spam-filter-drives-wedge-in-marriage.html">blame blogspot</a>" for his email not getting to his wife (her company's spam filtering solution deems any message containing any blogspot url to be spam and <span style="font-weight: bold;">bounces it</span>).<br><br>I've been having similar problems sending legitimate professional email to colleagues at various universities (these emails contained citations of various entries on this here blog; bounces included Harvard and the University of California Santa Barbara among others). Some of them at least employ a bounce message that explains why:<br><br><a style="font-weight: bold;" href="http://www.spamhaus.org/sbl/sbl.lasso?query=SBL61021">Spamhaus</a><a style="font-weight: bold;" href="http://www.spamhaus.org/sbl/sbl.lasso?query=SBL61021"> is the culprit</a><span style="font-weight: bold;">.</span><br><br>Newsflash for <a href="http://www.spamhaus.org/">Spamhaus</a> and filter writers everywhere:<br><ul>
+<li>Link spam is an evil-bad problem.<br>
+</li>
+<li>Dropping a nuke in the baby's bathwater is not the schoolhouse solution.</li>
+</ul>Maybe I should bill Spamhaus (or those institutions using its black list) for the time I've spent troubleshooting this. Maybe you should too.<br><br><span style="font-weight: bold; color: rgb(255, 102, 102);">Update:</span> this has been going on for a while:<br><ul>
+<li>
+<a href="http://www.spamresource.com/2007/07/blogger-listed-on-spamhaus-blacklist.html">Spam resource: blogger listed</a> (9 July 2007)<a href="http://www.spamresource.com/2007/07/blogger-listed-on-spamhaus-blacklist.html"><br></a>
+</li>
+<li>
+<a href="http://skeptacles.blogspot.com/2007/07/blogger-domain-blocked-by-spamhaus.html">Skeptacles: blogger domain blocked</a> (8 July 2007)<a href="http://skeptacles.blogspot.com/2007/07/blogger-domain-blocked-by-spamhaus.html"><br></a>
+</li>
+</ul>And, most interesting of all, the comment stream on <a href="http://it.slashdot.org/article.pl?sid=07/08/30/2242256">Storm Hits Blogger Network</a> (slashdot, 30 August 2007) ... search in page for "spamhaus" ... where we find arguments to the effect that my reaction above fails to capture the full complexities of the situation.
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="index-7.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="index-5.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

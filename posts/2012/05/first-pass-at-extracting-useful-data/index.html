@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First pass at extracting useful data from my dissertation | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2012/05/first-pass-at-extracting-useful-data/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../five-minutes-to-ancient-world-linked/" title="Five Minutes to Ancient World Linked Data JavaScript" type="text/html">
+<link rel="next" href="../added-mapping-center-notes-to-maia/" title="Added Mapping Center Notes to Maia Atlantis" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="First pass at extracting useful data from my dissertation">
+<meta property="og:url" content="http://paregorios.org/posts/2012/05/first-pass-at-extracting-useful-data/">
+<meta property="og:description" content="You'll find context in yesterday's post on the dissertation.It turns out it wasn't as hard as I anticipated to start getting useful information extracted from my born-digital-for-printing-on-dead-tree">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-05-23T22:56:00-05:00">
+<meta property="article:tag" content="demarc">
+<meta property="article:tag" content="openness">
+<meta property="article:tag" content="tei">
+<meta property="article:tag" content="xml">
+<meta property="article:tag" content="xslt">
+<meta property="article:tag" content="yaks">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">First pass at extracting useful data from my dissertation</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2012-05-23T22:56:00-05:00" itemprop="datePublished" title="2012-05-23 22:56">2012-05-23 22:56</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <i>You'll find context in <a href="http://horothesia.blogspot.com/2012/05/open-access-epigraphic-evidence-for.html">yesterday's post on the dissertation</a>.</i><br><br>It turns out it wasn't as hard as I anticipated to start getting useful information extracted from my born-digital-for-printing-on-dead-trees dissertation. Here's a not-yet-perfect xml serialization (borrowing tags from the TEI) of "instance" information found in the diss narrative:<br><br><a href="https://github.com/paregorios/demarc/blob/master/xml/instances.xml">https://github.com/paregorios/demarc/blob/master/xml/instances.xml</a><br><br>Each instance is a historical event (or in some cases event series) relating to boundary demarcation or dispute within the empire. Here's a comparison between the original formatting for paper and the xml.<br><br>For paper:<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-nu_yP3-852Q/T71bfc35IOI/AAAAAAAAAQE/MTtfTmuT0PQ/s1600/wookie.png" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="390" width="400" src="http://2.bp.blogspot.com/-nu_yP3-852Q/T71bfc35IOI/AAAAAAAAAQE/MTtfTmuT0PQ/s400/wookie.png"></a></div>  <br>XML:<br><pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; color: #000000; background-color: #eee;font-size: 12px;border: 1px dashed #999999;line-height: 14px;padding: 5px; overflow: auto; width: 100%"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>&lt;div type="instance" xml:id="INST9"&gt;<br>  &lt;idno type="original"&gt;INST9&lt;/idno&gt;<br>  &lt;head&gt;A Negotiated Boundary between the &lt;placeName <br>    type="ancient"&gt;Zamucci&lt;/placeName&gt; and the &lt;placeName <br>    type="ancient"&gt;Muduciuvi&lt;/placeName&gt;&lt;/head&gt;<br>  &lt;p rend="indent"&gt;Burton 2000, no. 78&lt;/p&gt;<br>  &lt;p&gt;Date(s): &lt;date&gt;AD 86&lt;/date&gt;&lt;/p&gt;<br>  &lt;p type="treDisputeStatement"&gt;This boundary marker was placed in <br>    accordance with the agreement of both parties (&lt;foreign xml:lang="la"&gt;ex <br>    conven/tione utrarumque nationum&lt;/foreign&gt;), and therefore may be taken as<br>    evidence of a &lt;hi rend="bold"&gt;boundary dispute&lt;/hi&gt;.&lt;/p&gt;<br>  &lt;p rend="indent"&gt;This single boundary marker from coastal &lt;placeName <br>    type="modern"&gt;Libya&lt;/placeName&gt; provides the only evidence for the resolution<br>    of a boundary dispute between these two indigenous peoples. The date of the <br>    demarcation, as calculated from the imperial titulature, places the event in <br>    the same year as the reported ‘destruction’ of the &lt;placeName <br>    type="ancient"&gt;Nasamones&lt;/placeName&gt; by &lt;placeName type="ancient"&gt;Legio III <br>    Augusta&lt;/placeName&gt; as a consequence of a tax revolt in which tax collectors <br>    were killed.&lt;note n="286"&gt; Zonaras 11.19. &lt;/note&gt; It is not clear whether <br>    the boundary action was related to the conflict, or merely took advantage of<br>    the temporary presence of the legionary legate in what ought to have been<br>    part of the proconsular province. Surviving documentation for proconsuls<br>    during the 80s AD is incomplete, and therefore we cannot say who was<br>    governing &lt;placeName type="ancient"&gt;Africa Proconsularis &lt;/placeName&gt;at the <br>    time of this demarcation.&lt;note n="287"&gt; Thomasson 1996, 45-48. &lt;/note&gt;<br>    Neither party seems to have been related to the &lt;placeName <br>    type="ancient"&gt;Nasamones&lt;/placeName&gt;; rather, they are thought to be sub-<br>    tribes of the &lt;placeName type="ancient"&gt;Macae.&lt;/placeName&gt;&lt;note <br>    n="288"&gt;Mattingly 1994, 27-28, 32, 74, 76.. &lt;/note&gt;&lt;/p&gt;<br>&lt;/div&gt;<br><br></code></pre>
+<br><br>One thing that made this a lot easier than it might of been was the way I used styles in Microsoft Word back when I created the original version of the document. Rather than just painting formatting onto my text for headings, paragraphs, strings of characters, and so forth, I created a custom "style" for each type of thing I wanted to paint (e.g., an "instance heading" or a "personal name"). I associated the desired visual formatting with each of these, but the names themselves (since the captured semantic distinctions that I was interested in) provided hooks today for writing this stuff out as sort-of TEI XML.<br><br>There's more to do, obviously, but this was a satisfying first step.
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/demarc/" rel="tag">demarc</a></li>
+            <li><a class="tag p-category" href="../../../../categories/openness/" rel="tag">openness</a></li>
+            <li><a class="tag p-category" href="../../../../categories/tei/" rel="tag">tei</a></li>
+            <li><a class="tag p-category" href="../../../../categories/xml/" rel="tag">xml</a></li>
+            <li><a class="tag p-category" href="../../../../categories/xslt/" rel="tag">xslt</a></li>
+            <li><a class="tag p-category" href="../../../../categories/yaks/" rel="tag">yaks</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../five-minutes-to-ancient-world-linked/" rel="prev" title="Five Minutes to Ancient World Linked Data JavaScript">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../added-mapping-center-notes-to-maia/" rel="next" title="Added Mapping Center Notes to Maia Atlantis">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

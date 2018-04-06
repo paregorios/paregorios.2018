@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playing with PELAGIOS: The GAWD is Live | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2012/02/playing-with-pelagios-gawd-is-live/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../playing-with-pelagios-dealing-with/" title="Playing with PELAGIOS: Dealing with a bazillion RDF files" type="text/html">
+<link rel="next" href="../playing-with-pelagios-open-context-and/" title="Playing with PELAGIOS: Open Context and Labels" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Playing with PELAGIOS: The GAWD is Live">
+<meta property="og:url" content="http://paregorios.org/posts/2012/02/playing-with-pelagios-gawd-is-live/">
+<meta property="og:description" content="The is the lastest in an on-going series chronicling my dalliances with data published by the PELAGIOS project partners.I think it's safe to say that, thanks to the PELAGIOS partner institutions, that">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-02-06T16:56:00-06:00">
+<meta property="article:tag" content="concordia">
+<meta property="article:tag" content="gawd">
+<meta property="article:tag" content="lawdi">
+<meta property="article:tag" content="linkeddata">
+<meta property="article:tag" content="LOD">
+<meta property="article:tag" content="nomisma">
+<meta property="article:tag" content="pelagios">
+<meta property="article:tag" content="pelagiosplay">
+<meta property="article:tag" content="pleiades">
+<meta property="article:tag" content="rdf">
+<meta property="article:tag" content="sparql">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Playing with PELAGIOS: The GAWD is Live</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2012-02-06T16:56:00-06:00" itemprop="datePublished" title="2012-02-06 16:56">2012-02-06 16:56</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <i>The is the lastest in an on-going series chronicling my <a href="http://horothesia.blogspot.com/search/label/pelagiosplay">dalliances with data published by the PELAGIOS project partners</a>.</i><br><br>I think it's safe to say that, thanks to the <a href="http://pelagios-project.blogspot.com/">PELAGIOS</a> partner institutions, that we do have a <b>Graph of Ancient World Data (GAWD)</b> on the web. It's still in early stages, and one has to do some downloading, unzipping, and so forth to engage with it at the moment, but indeed the long-awaited day has dawned.<br><br>Here's the perspective, as of last Friday, from the vantage point of <a href="http://pleiades.stoa.org/">Pleiades</a>. I've used SPARQL to query the GAWD for all information resources that the partners claim (via their RDF data dumps) are related to Pleiades information resources. I.e., I'm pulling out a list of information resources about texts, pictures, objects, grouped by their relationships to what Pleiades knows about ancient places (findspot, original location, etc.). I've sorted that view of the graph by the titles Pleiades gives to its place-related information resources and generated an <a href="http://www.atlantides.org/pelagiosexp/pleiadic.html">HTML view of the result</a>. It's here for your browsing pleasure.<br><br><b>Next Steps and Desiderata</b><br><br>For various technical reasons, I'm not yet touching the data of a couple of PELAGIOS partners (<a href="http://explore.clarosnet.org/XDB/ASP/clarosHome/">CLAROS</a> and <a href="http://spqr.cerch.kcl.ac.uk/">SPQR</a>), but the will hopefully be resolved soon. I still need to dig into figuring out what <a href="http://opencontext.org/">Open Context</a> is doing on this front. Other key resources -- especially those emanating from ISAW -- are not yet ready to produce RDF (but we're working on it).<br><br>There are a few things I'd like the PELAGIOS partners to consider/discuss adding to their data:<br><br><ul>
+<li>Titles/labels for the information resources (using rdfs:label?). This would make it possible for me to produce more intuitive/helpful labels for users of my HTML index. Descriptions would be cool too. As would some indication of the type of thing(s) a given resource addresses (e.g., place, statue, inscription, text)</li>
+<li>Categorization of the relationships between their information resources and Pleaides information resources. Perhaps some variation of the <a href="http://gawd.atlantides.org/terms/">terms originally explored by Concordia</a> (whence the GAWD moniker), as someone on the PELAGIOS list has already suggested.</li>
+</ul>
+<div>What would you like to see added to the GAWD? What would you do with it?</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/concordia/" rel="tag">concordia</a></li>
+            <li><a class="tag p-category" href="../../../../categories/gawd/" rel="tag">gawd</a></li>
+            <li><a class="tag p-category" href="../../../../categories/lawdi/" rel="tag">lawdi</a></li>
+            <li><a class="tag p-category" href="../../../../categories/linkeddata/" rel="tag">linkeddata</a></li>
+            <li><a class="tag p-category" href="../../../../categories/lod/" rel="tag">LOD</a></li>
+            <li><a class="tag p-category" href="../../../../categories/nomisma/" rel="tag">nomisma</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pelagios/" rel="tag">pelagios</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pelagiosplay/" rel="tag">pelagiosplay</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pleiades/" rel="tag">pleiades</a></li>
+            <li><a class="tag p-category" href="../../../../categories/rdf/" rel="tag">rdf</a></li>
+            <li><a class="tag p-category" href="../../../../categories/sparql/" rel="tag">sparql</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../playing-with-pelagios-dealing-with/" rel="prev" title="Playing with PELAGIOS: Dealing with a bazillion RDF files">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../playing-with-pelagios-open-context-and/" rel="next" title="Playing with PELAGIOS: Open Context and Labels">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

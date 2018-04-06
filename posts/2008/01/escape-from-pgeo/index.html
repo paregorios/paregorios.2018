@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escape from PGeo | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2008/01/escape-from-pgeo/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../nssdc-id-1958-001a/" title="NSSDC ID: 1958-001A" type="text/html">
+<link rel="next" href="../growing-pains-at-bp3/" title="Growing Pains at BP3" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Escape from PGeo">
+<meta property="og:url" content="http://paregorios.org/posts/2008/01/escape-from-pgeo/">
+<meta property="og:description" content="ScenarioThere's spatial data you want in an &quot;ESRI Personal Geodatabase&quot; file, but you don't have any ESRI tools. How do you get it out?One short answerDownload and install Frank Warmerdam's FWToolsSta">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2008-01-31T21:49:00-06:00">
+<meta property="article:tag" content="tools">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Escape from PGeo</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2008-01-31T21:49:00-06:00" itemprop="datePublished" title="2008-01-31 21:49">2008-01-31 21:49</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <span style="font-weight: bold;">Scenario</span><br><br>There's spatial data you want in an "<a href="http://www.esri.com/software/arcgis/geodatabase/index.html">ESRI Personal Geodatabase</a>" file, but you don't have any ESRI tools. How do you get it out?<br><br><span style="font-weight: bold;">One short answer</span><br><ul>
+<li>Download and install <a href="http://fwtools.maptools.org/">Frank Warmerdam's FWTools</a>
+</li>
+<li>Start the FWTools shell and invoke <a href="http://www.gdal.org/ogr/ogrinfo.html">ogrinfo</a> (to explore the content) and <a href="http://www.gdal.org/ogr/ogr2ogr.html">ogr2ogr</a> (to extract it to <a href="http://www.gdal.org/ogr/ogr_formats.html">other formats</a>)</li>
+</ul>
+<span style="font-weight: bold;">One how-to (steps verified on Windows Vista)</span><br><br><span style="font-style: italic;">Explore the content with ogrinfo</span><br><pre>C:\Users\Tom\Documents\itins&gt;ogrinfo ItAntMapping.mdb<br>INFO: Open of `ItAntMapping.mdb'<br>     using driver `PGeo' successful.<br>1: whollyimprecise<br>2: placesAdded<br>3: placesEstimated<br>4: placesSolid<br>5: stretchesDangling<br>6: stretchesFloating<br>7: stretchesSolid<br>8: tpPoints<br>9: stretchesUnlocated<br></pre>
+<span style="font-style: italic;">Extract a layer to an ESRI shapefile</span><br><pre>C:\Users\Tom\Documents\itins&gt;ogr2ogr -f "ESRI Shapefile" itant-solidplaces.shp I<br>tAntMapping.mdb placesSolid</pre>
+<span style="font-style: italic;">Verify results</span><br><pre>C:\Users\Tom\Documents\itins&gt;dir itant-solidplaces.*<br>Volume in drive C has no label.<br>Volume Serial Number is 2C47-654D<br><br>Directory of C:\Users\Tom\Documents\itins<br><br>01/31/2008  04:00 PM         1,141,669 itant-solidplaces.dbf<br>01/31/2008  04:00 PM               147 itant-solidplaces.prj<br>01/31/2008  04:00 PM            85,780 itant-solidplaces.shp<br>01/31/2008  04:00 PM            24,580 itant-solidplaces.shx<br>              4 File(s)      1,252,176 bytes<br>              0 Dir(s)  172,586,586,112 bytes free<br></pre>
+<span style="font-weight: bold;">Coming soon</span><br><br>A sequel, wherein we write a python script to automate the extraction of multiple feature classes (layers, themes) with different geometries from a single geodatabase file to multiple shapefiles.<br><br><span style="font-weight: bold;">Thanks</span><br><br><a href="http://zcologia.com/news/about">Sean</a> and <a href="http://hobu.biz/">Howard</a>.
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/tools/" rel="tag">tools</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../nssdc-id-1958-001a/" rel="prev" title="NSSDC ID: 1958-001A">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../growing-pains-at-bp3/" rel="next" title="Growing Pains at BP3">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

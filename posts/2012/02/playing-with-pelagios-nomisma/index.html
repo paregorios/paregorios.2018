@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playing with PELAGIOS: Nomisma | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2012/02/playing-with-pelagios-nomisma/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../../01/new-on-electra-tapas-news/" title="New on Electra: TAPAS News" type="text/html">
+<link rel="next" href="../playing-with-pelagios-arachne-was-easy/" title="Playing with PELAGIOS: Arachne was easy after nomisma" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Playing with PELAGIOS: Nomisma">
+<meta property="og:url" content="http://paregorios.org/posts/2012/02/playing-with-pelagios-nomisma/">
+<meta property="og:description" content="So, I want to see how hard it is to query the RDF that PELAGIOS partners are putting together. The first experiment is documented below.Step 1: Set up a Triplestore (something to load the RDF into and">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-02-01T21:57:00-06:00">
+<meta property="article:tag" content="lawdi">
+<meta property="article:tag" content="linkeddata">
+<meta property="article:tag" content="LOD">
+<meta property="article:tag" content="nomisma">
+<meta property="article:tag" content="pelagios">
+<meta property="article:tag" content="pelagiosplay">
+<meta property="article:tag" content="pleiades">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Playing with PELAGIOS: Nomisma</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2012-02-01T21:57:00-06:00" itemprop="datePublished" title="2012-02-01 21:57">2012-02-01 21:57</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>So, I want to see how hard it is to query the <a href="http://www.w3.org/RDF/">RDF</a> that <a href="http://pelagios-project.blogspot.com/">PELAGIOS</a> partners are putting together. The first experiment is documented below.<br><br><b>Step 1: Set up a <a href="http://en.wikipedia.org/wiki/Triplestore">Triplestore</a> (something to load the RDF into and support queries)</b><br><br><i>Context: I'm a triplestore n00b. </i><br><br>I found Jeni Tennison's <a href="http://www.jenitennison.com/blog/node/152">Getting Started with RDF and SPARQL Using 4store and RDF.rb</a> and, though I had no interest in messing around with <a href="http://www.ruby-lang.org/en/">Ruby</a> as part of this exercise, the recommendation of <a href="http://4store.org/">4store</a> as a triplestore sounded good, so I went hunting for <a href="http://4store.org/download/macosx/">a Mac binary</a> and downloaded it.<br><br><b>Step 2: Grab RDF describing content in Nomisma.org</b><br><br><i>Context: I'm a point-and-click expert.</i><br><br>I downloaded the PELAGIOS-conformant RDF data published by Nomisma.org at <a href="http://nomisma.org/nomisma.org.pelagios.rdf">http://nomisma.org/nomisma.org.pelagios.rdf</a>.<br><br><i>Background: "<a href="http://nomisma.org/">Nomisma.org</a> is a collaborative effort to provide stable digital representations of numismatic concepts and entities, for example the generic idea of a coin hoard or an actual hoard as documented in the print publication An Inventory of Greek Coin Hoards (IGCH)."</i><br><br><b>Step 3: Fire up 4store and load in the nomisma.org </b><br><br><i>Context: I'm a 4store n00b, but I can cut and paste, read and reason, and experiment.</i><br><br>Double-clicked the 4store icon in my Applications folder. It opened a terminal window.<br><br>To create and start up an empty database for my triples, I followed <a href="http://4store.org/trac/wiki/CreateDatabase">the 4store instructions</a> and Tennison's post (mutatis mutandis) and so typed the following in the terminal window ("pelagios" is the name I gave to my database; you could call yours "ray" or "jay" if you like):<br></p>
+<pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ 4s-backend-setup pelagios<br>$ 4s-backend pelagios<br></code></pre>Then I started up <a href="http://4store.org/trac/wiki/SparqlServer">4store's SPARQL http server</a> and aimed it at the still-empty "pelagios" database so I could load my data and try my hand at some queries:<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ 4s-httpd pelagios<br></code></pre>Loading the nomisma data was then as simple as moving to the directory where I'd saved the RDF file and typing:<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ curl -T nomisma.org.pelagios.rdf 'http://localhost:8080/data/http://nomisma.org/nomisma.org.pelagios.rdf/'<br></code></pre>Note how the URI base for nomisma items is appended to the URL string passed via curl. This is how you specify the "model URI" for the graph of triples that gets created from the RDF.<br><br><b>Step 4: Try to construct a query and dig out some data.</b><br><br><i>Context: I'm a SPARQL n00b, but I'd done some SQL back in the day and XML and namespaces are pretty much burned into my soul at this point. </i><br><br>Following Tennison's example, I pointed my browser at http://localhost:8080/test/. I got 4store's SPARQL test query interface. I googled around looking grumpily at different SPARQL "how-tos" and "getting starteds" and trying stuff and pondering repeated failure until this worked:<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code><br>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;<br>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;<br>PREFIX oac: &lt;http://www.openannotation.org/ns/&gt;<br><br>SELECT ?x<br>WHERE {<br> ?x oac:hasBody &lt;http://pleiades.stoa.org/places/462086&gt; .<br>} <br><br></code></pre>That's "find the ID of every OAC Annotation in the triplestore that's linked to Pleiades Place 462086" (i.e., <a href="http://pleiades.stoa.org/places/462086">Akragas/Agrigentum, modern Agrigento in Sicily</a>). It's a list like this: <br><ul>
+<li>http://nomisma.org/nomisma.org.pelagios.rdf#igch1910-agrigentum-5</li>
+<li>http://nomisma.org/nomisma.org.pelagios.rdf#igch2089-agrigentum-24</li>
+<li>http://nomisma.org/nomisma.org.pelagios.rdf#igch2101-agrigentum-32</li>
+<li>...</li>
+</ul>
+<div>51 IDs in all.</div>
+<div><br></div>
+<div>But what I really want is a list of the IDs of the nomisma entities themselves so I can go look up the details and learn things. Back to the SPARQL mines until I produced this:</div>
+<div><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;<br>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;<br>PREFIX oac: &lt;http://www.openannotation.org/ns/&gt;<br><br>SELECT ?nomismaid<br>WHERE {<br> ?x oac:hasBody &lt;http://pleiades.stoa.org/places/462086&gt; .<br> ?x oac:hasTarget ?nomismaid .<br>} <br><br></code></pre></div>
+<div></div>
+<div>Now I have a list of 51 nomisma IDs: <a href="http://nomisma.org/id/agrigentum">one for the mint</a> and 50 coin hoards that illustrate the economic network in which the ancient city participated (e.g., <a href="http://nomisma.org/id/igch2081">http://nomisma.org/id/igch2081</a>).<br><br>Cost: about 2 hours of time, 1 cup of coffee, and three favors from <a href="http://sebastianheath.com/">Sebastian Heath</a> on IRC.<br><br>Up next: <a href="http://arachne.uni-koeln.de/">Arachne</a>, the object database of the <i>Deutsches Archäologisches Institut</i>.<br><br>
+</div>
+<div><br></div>
+<div><br></div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/lawdi/" rel="tag">lawdi</a></li>
+            <li><a class="tag p-category" href="../../../../categories/linkeddata/" rel="tag">linkeddata</a></li>
+            <li><a class="tag p-category" href="../../../../categories/lod/" rel="tag">LOD</a></li>
+            <li><a class="tag p-category" href="../../../../categories/nomisma/" rel="tag">nomisma</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pelagios/" rel="tag">pelagios</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pelagiosplay/" rel="tag">pelagiosplay</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pleiades/" rel="tag">pleiades</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../../01/new-on-electra-tapas-news/" rel="prev" title="New on Electra: TAPAS News">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../playing-with-pelagios-arachne-was-easy/" rel="next" title="Playing with PELAGIOS: Arachne was easy after nomisma">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

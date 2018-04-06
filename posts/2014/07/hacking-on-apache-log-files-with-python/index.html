@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacking on Apache Log Files with Python | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2014/07/hacking-on-apache-log-files-with-python/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../../06/new-in-maia-turkish-archaeological-news/" title="New in Maia: Turkish Archaeological News and Sarah E. Bond" type="text/html">
+<link rel="next" href="../new-in-electa-epidoc-workshop/" title="New in Electra: EpiDoc Workshop" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Hacking on Apache Log Files with Python">
+<meta property="og:url" content="http://paregorios.org/posts/2014/07/hacking-on-apache-log-files-with-python/">
+<meta property="og:description" content="There are plenty of tools out there for doing web request analysis. I wanted to pull some information out of some Apache log files without all that overhead. Here's what I did:I got Rory McCann's apac">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2014-07-14T23:47:00-05:00">
+<meta property="article:tag" content="analytics">
+<meta property="article:tag" content="apache">
+<meta property="article:tag" content="logs">
+<meta property="article:tag" content="python">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hacking on Apache Log Files with Python</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2014-07-14T23:47:00-05:00" itemprop="datePublished" title="2014-07-14 23:47">2014-07-14 23:47</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>There are plenty of tools out there for doing web request analysis. I wanted to pull some information out of some <a href="https://www.apache.org/">Apache</a> log files without all that overhead. Here's what I did:<br><br>I got <a href="http://www.technomancy.org/">Rory McCann</a>'s <i>apache-log-parser </i>(after some googling; it's <a href="https://github.com/rory/apache-log-parser">on Github</a> and <a href="https://pypi.python.org/pypi/apache-log-parser/">on pypi</a>).  I set up a Python virtual environment using Doug Hellmann's <i><a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a></i>, activated it, and then used:<br><br></p>
+<pre style="background-image: URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif); background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> pip install apache-log-parser  <br></code></pre>
+<br>Since I'd never used <i>apache-log-parser</i> before, I had to get familiar with it. I discovered that, to use it, I had to know the format string that Apache was using to log information for my site. This was a two-step process, figured out by reading <a href="https://httpd.apache.org/docs/2.2/logs.html">the Log Files section of the Apache documentation</a> and poking about with <a href="https://en.wikipedia.org/wiki/Grep">grep</a>.<br><br>First, I searched in the Apache configuration files for the <span style="background-color: #eeeeee; font-family: Courier New, Courier, monospace;">CustomLog</span> directive that's associated with the virtual host I wanted to analyze. This gave me a 'nickname' for the log configuration. More spelunking in Apache config files -- this time in the main configuration file -- turned up the definition of that nickname (Apache uses the <span style="background-color: #eeeeee; font-family: Courier New, Courier, monospace;">LogFormat</span> directive for this purpose):<br><br><pre style="background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> $ cd /etc/apache2/  <br> $ grep CustomLog sites-enabled/foo.nowhere.org  <br>  CustomLog /var/log/apache2/foo.nowhere.org-access.log combined  <br> $ grep combined apache2.conf   <br> LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined  <br></code></pre>
+<br>It's that <span style="background-color: #eeeeee; font-family: Courier New, Courier, monospace;">LogFormat</span> string that needs to be given to Rory's code so it knows how to parse your log files.<br><br>After some experimenting in the Python interpreter to get a feel for the code and its capabilities, I wrote a few lines of my own to wrap the setup and file reading operations:<br><br><pre style="background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> #!/usr/bin/env python  <br> # -*- coding: utf-8 -*-  <br><br> import apache_log_parser  <br> import glob  <br> import logging  <br><br> # supported log file formats  <br> APACHE_COMBINED="%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\""  <br> APACHE_COMMON="%h %l %u %t \"%r\" %&gt;s %b"  <br><br> def gulp(log_file_path, pattern=APACHE_COMBINED):  <br>   """ import and parse log files """  <br>   log_data=[]  <br>   line_parser=apache_log_parser.make_parser(pattern)  <br>   for file_name in glob.glob(log_file_path):  <br>     logging.info("file_name: %s" % file_name)  <br>     file = open(file_name, 'r')  <br>     lines = file.readlines()  <br>     file.close()  <br>     logging.info(" read %s lines" % len(lines))  <br>     for line in lines:  <br>       line_data=line_parser(line)  <br>       log_data.append(line_data)  <br>   logging.info("total number of events parsed: %s" % len(log_data))  <br>   return log_data  <br></code></pre>
+<br>For this particular server, I had multiple log files, but I wanted to have all the requests from all of them (parsed into dictionaries by Rory's code) in a single list for subsequent analysis. So, back to the Python interpreter:<br><br><pre style="background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> &gt;&gt;&gt; import logging  <br> &gt;&gt;&gt; logging.basicConfig(level=logging.INFO)  <br> &gt;&gt;&gt; import loggulper  <br> &gt;&gt;&gt; d = loggulper.gulp("/path/to/my/log/files/foo.nowhere.org-access.*")  <br></code></pre>
+<br>I'll spare you the logging messages. This took several minutes. I ended up with about 1.5 million requests in the list. Real life intervened. How to save this data for later without having to run through the whole import process again? <a href="https://docs.python.org/2/library/pickle.html#data-stream-format">Pickle</a> it.<br><br><pre style="background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> &gt;&gt;&gt; import cPickle as pickle  <br> &gt;&gt;&gt; out_name = "logdata.pickle"  <br> &gt;&gt;&gt; outf = open(out_name, 'w')  <br> &gt;&gt;&gt; pickler = pickle.Pickler(outf, pickle.HIGHEST_PROTOCOL)  <br> &gt;&gt;&gt; pickler.dump(d)  <br> &lt;cPickle.Pickler object at 0x1044044e8&gt;  <br> &gt;&gt;&gt; outf.close()  <br></code></pre>
+<br>The whole list was saved to a 933.3 MB file in just a few seconds (full disclosure: I have a solid-state drive). It was nearly as quick to read back in a couple of days later (new interpreter session and all):<br><br><pre style="background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> &gt;&gt;&gt; import cPickle as pickle  <br> &gt;&gt;&gt; in_name="logdata.pickle"  <br> &gt;&gt;&gt; inf=open(in_name, 'r')  <br> &gt;&gt;&gt; unpickler=pickle.Unpickler(inf)  <br> &gt;&gt;&gt; d=unpickler.load()  <br> &gt;&gt;&gt; len(d)  <br> 1522015  <br> &gt;&gt;&gt; d[0].keys()  <br> ['status', 'request_header_referer', 'remote_user', 'request_header_user_agent__browser__family', 'request_header_user_agent__is_mobile', 'request_header_user_agent__browser__version_string', 'request_header_user_agent', 'request_http_ver', 'request_header_user_agent__os__version_string', 'remote_logname', 'time_recieved_isoformat', 'time_recieved', 'request_first_line', 'request_header_user_agent__os__family', 'request_method', 'request_url', 'remote_host', 'time_recieved_datetimeobj', 'response_bytes_clf']  <br></code></pre>
+<br>It's important to notice at this point that the word "received" is misspelled "recieved" in keys in the dictionaries returned by <i>apache-log-parser</i>. If you don't notice this early on, it will cause some amount of frustration.<br><br>It turned out that my log data included events past the end of reporting period I'd been given (ending 31 May 2014), so I needed to filter out just those requests that fell within the reporting period. <a href="https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions">Python list comprehensions</a> to the rescue:<br><br><pre style="background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> &gt;&gt;&gt; dates=[req['time_recieved_datetimeobj'] for req in d]  <br> &gt;&gt;&gt; max(dates)  <br> datetime.datetime(2014, 7, 13, 11, 37, 31)  <br> &gt;&gt;&gt; min(dates)  <br> datetime.datetime(2013, 7, 21, 3, 41, 26)  <br> &gt;&gt;&gt; from datetime import datetime  <br> &gt;&gt;&gt; d_relevant=[req for req in d if req['time_recieved_datetimeobj'] &lt; datetime(2014,06,01)]  <br> &gt;&gt;&gt; dates=[req['time_recieved_datetimeobj'] for req in d_relevant]  <br> &gt;&gt;&gt; max(dates)  <br> datetime.datetime(2014, 5, 31, 23, 59, 17)  <br> &gt;&gt;&gt; min(dates)  <br> datetime.datetime(2013, 7, 21, 3, 41, 26)  <br></code></pre>
+<br>Now to separate requests made by self-identified bots and spiders from the rest of the traffic:<br><br><pre style="background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> &gt;&gt;&gt; robots=[req for req in d_relevant if 'bot' in req['request_header_user_agent'].lower() or 'spider' in req['request_header_user_agent'].lower()]  <br> &gt;&gt;&gt; len(robots)  <br> 848450  <br> &gt;&gt;&gt; humans=[req for req in d_relevant if 'bot' not in req['request_header_user_agent'].lower() and 'spider' not in req['request_header_user_agent'].lower()]  <br> &gt;&gt;&gt; len(humans)  <br> 486249  <br> &gt;&gt;&gt; len(robots) + len(humans) == len(d_relevant)  <br> True  <br> &gt;&gt;&gt; unique_bots=[]  <br> &gt;&gt;&gt; for bot in robots:  <br> ...   if bot['request_header_user_agent'] not in unique_bots:  <br> ...     unique_bots.append(bot['request_header_user_agent'])  <br> ...   <br> &gt;&gt;&gt; len(unique_bots)  <br> 229<br></code></pre>
+<br>Aside: yes, I know there could well still be automated agents in the "humans" list; I've only filtered out <a href="https://en.wikipedia.org/wiki/User_agent#Format_for_automated_agents_.28bots.29">those that are not operated by the sneaky or the uninformed</a>. Let's not worry about that issue for now.<br><br>Stay tuned for the next installment, wherein I hope we actually learn something about how our server is being used.
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/analytics/" rel="tag">analytics</a></li>
+            <li><a class="tag p-category" href="../../../../categories/apache/" rel="tag">apache</a></li>
+            <li><a class="tag p-category" href="../../../../categories/logs/" rel="tag">logs</a></li>
+            <li><a class="tag p-category" href="../../../../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../../06/new-in-maia-turkish-archaeological-news/" rel="prev" title="New in Maia: Turkish Archaeological News and Sarah E. Bond">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../new-in-electa-epidoc-workshop/" rel="next" title="New in Electra: EpiDoc Workshop">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

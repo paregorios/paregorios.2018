@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shapely: A Python Package for Programming with 2D Geospatial Geometries | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2008/01/shapely-python-package-for-programming/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../john-matthews-theophanes-wins-breasted/" title="John Matthews' Theophanes wins Breasted Prize" type="text/html">
+<link rel="next" href="../ancient-gazetteergeodata-builders-unite/" title="Ancient Gazetteer/Geodata Builders, Unite!" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Shapely: A Python Package for Programming with 2D Geospatial Geometrie">
+<meta property="og:url" content="http://paregorios.org/posts/2008/01/shapely-python-package-for-programming/">
+<meta property="og:description" content="Sean deserves a big hand, and a break: he's just released Shapely 1.0.What:It's a package of python code for manipulating and analyzing two-dimensional geospatial geometries. Shapely lets you calculat">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2008-01-18T21:46:00-06:00">
+<meta property="article:tag" content="interop">
+<meta property="article:tag" content="neogeography">
+<meta property="article:tag" content="pleiades">
+<meta property="article:tag" content="tools">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Shapely: A Python Package for Programming with 2D Geospatial Geometries</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2008-01-18T21:46:00-06:00" itemprop="datePublished" title="2008-01-18 21:46">2008-01-18 21:46</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <a href="http://zcologia.com/sgillies/">Sean</a> deserves a big hand, and a break: he's just released <a href="http://pypi.python.org/pypi/Shapely">Shapely 1.0</a>.<br><br><span style="font-weight: bold;">What:</span><br><br>It's a package of <a href="http://www.python.org/">python</a> code for manipulating and analyzing two-dimensional geospatial geometries. Shapely lets you calculate unions, intersections and differences of two-dimensional shapes, thereby letting you determine whether these shapes intersect, touch or contain one another.<br><br><span style="font-weight: bold;">Who:</span><br><br>Sean had alot of great help (see <a href="http://pypi.python.org/pypi/Shapely#credits">Shapely Credits</a>). Some of Sean's work on Shapely was supported by our <a href="http://www.neh.gov">NEH</a> grant for <a href="http://pleiades.stoa.org">Pleiades</a>.<br><br><span style="font-weight: bold;">Why:</span><br><br>Why would humanists care about (or help fund) such a code library?<br><br>I'll give you the Pleiad-o-centric part of the answer:  information discovery is an essential component of humanities research, and geography is often highly relevant. What's near what? What's within something else? Or within a certain distance of something else? Are there Roman-era weapon finds cataloged by the <a href="http://www.finds.org.uk/">Portable Antiquities Scheme</a> that fall within 2km of a Roman-era fort registered by Pleiades? Are there excavations documented by <a href="http://www.fastionline.org/">Fasti Online</a> or regional surveys cataloged by <a href="http://cgma.depauw.edu/MAGIS/">MAGIS</a> that correlate with features cataloged in Pleiades? (If so, dynamically provide Pleiades users with links to them as they browse).<br><br>Shapely gives us what we didn't have: a tested, free, open-source, pythonic base for building these kinds of correlation functions and cross-project interoperability calculations into Pleiades and, hopefully, helping others do the same.
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/interop/" rel="tag">interop</a></li>
+            <li><a class="tag p-category" href="../../../../categories/neogeography/" rel="tag">neogeography</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pleiades/" rel="tag">pleiades</a></li>
+            <li><a class="tag p-category" href="../../../../categories/tools/" rel="tag">tools</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../john-matthews-theophanes-wins-breasted/" rel="prev" title="John Matthews' Theophanes wins Breasted Prize">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../ancient-gazetteergeodata-builders-unite/" rel="next" title="Ancient Gazetteer/Geodata Builders, Unite!">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

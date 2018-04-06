@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pleiades Machine Tags for Blog Posts? Yes! | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2012/10/pleiades-machine-tags-for-blog-posts-yes/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../../08/text-of-my-talk-at-ciegl-2012/" title="Text of my talk at CIEGL 2012" type="text/html">
+<link rel="next" href="../new-blogs-added-to-planet-atlantides/" title="New Blogs Added to Planet Atlantides" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Pleiades Machine Tags for Blog Posts? Yes!">
+<meta property="og:url" content="http://paregorios.org/posts/2012/10/pleiades-machine-tags-for-blog-posts-yes/">
+<meta property="og:description" content="So, a few minutes ago I noticed a new post in my feed reader from a blog I've admired for a while: Javier Andreu Pintado's Oppida Imperii Romani. I've thought for a long time that I ought to get in to">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-10-04T19:04:00-05:00">
+<meta property="article:tag" content="blogs">
+<meta property="article:tag" content="flickr">
+<meta property="article:tag" content="interop">
+<meta property="article:tag" content="lawdi">
+<meta property="article:tag" content="linkeddata">
+<meta property="article:tag" content="machine tags">
+<meta property="article:tag" content="pelagios">
+<meta property="article:tag" content="pleiades">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Pleiades Machine Tags for Blog Posts? Yes!</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2012-10-04T19:04:00-05:00" itemprop="datePublished" title="2012-10-04 19:04">2012-10-04 19:04</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>So, a few minutes ago I noticed a new post in my feed reader from a blog I've admired for a while: <a href="http://oppidaimperiiromani.blogspot.com/">Javier Andreu Pintado's <i>Oppida Imperii Romani</i></a>. I've thought for a long time that I ought to get in touch with him (we don't know each other from Adam as far as I know) and see if we could figure out a more-or-less automated way to get his posts to show up on the associated <a href="http://pleiades.stoa.org/">Pleiades</a> pages.<br><br>Then it hit me:<br><br>Why can't we just use labels incorporating Pleiades IDs <a href="http://www.flickr.com/photos/tags/pleiades%3A%2A/">like we've been doing with machine tags on Flickr</a> and query the <a href="https://developers.google.com/blogger/">Blogger API</a> to get the associated posts?<br><br>Why not indeed. It turns out it just works.<br><br>To test, I added the string "pleiades:depicts=579885" as a label on my blog post from last December, "<a href="http://horothesia.blogspot.com/2011/12/pleiades-flickr-and-ancient-world-image.html">Pleiades, Flickr, and the Ancient World Image Bank</a>" (Since that tag is used in an example in that post. I recognize that the blog post doesn't actually depict that place, which is what that label term ought to mean, but this is just a test).<br><br>Then I went to the <a href="http://developers.google.com/apis-explorer/#p/blogger/v3/blogger.posts.list">Google APIs Explorer page for the Blogger "list posts" function</a> (which I found by googling) and entered by blog's ID and the label string in the appropriate fields.<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-ZDJEKTh1Rvw/UG3OrA9SzpI/AAAAAAAAAUA/Eolha5XwZmM/s1600/formview.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="185" src="http://3.bp.blogspot.com/-ZDJEKTh1Rvw/UG3OrA9SzpI/AAAAAAAAAUA/Eolha5XwZmM/s320/formview.jpg" width="320"></a></div>
+<br><br>And, in a matter of milliseconds, I got back a JSON representation of my blog post.<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-17F9DHHBHUo/UG3POJCX_mI/AAAAAAAAAUI/jtzURgoP0z4/s1600/jsonview.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="185" src="http://3.bp.blogspot.com/-17F9DHHBHUo/UG3POJCX_mI/AAAAAAAAAUI/jtzURgoP0z4/s320/jsonview.jpg" width="320"></a></div>
+<br><br>So now I'm thinking we might explore the possibility of creating a widget on Pleiades place pages to feature blog posts tagged like this from selected blogs. It appears that, to execute the API queries against Blogger, we have to do them blog-by-blog with known IDs, but that's probably OK anyway so we can curate the process of blog selection and prevent spam.<br><br>It occurs to me that the <a href="http://pelagios-project.blogspot.com/">Pelagios</a> community might be interested in looking at this approach in order to build a gateway service to inject blog posts into the Pelagios network.<br><br>And while I'm name-checking, I wonder if any Wordpress aficionados out there can come up with a functionally equivalent mechanism.
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/blogs/" rel="tag">blogs</a></li>
+            <li><a class="tag p-category" href="../../../../categories/flickr/" rel="tag">flickr</a></li>
+            <li><a class="tag p-category" href="../../../../categories/interop/" rel="tag">interop</a></li>
+            <li><a class="tag p-category" href="../../../../categories/lawdi/" rel="tag">lawdi</a></li>
+            <li><a class="tag p-category" href="../../../../categories/linkeddata/" rel="tag">linkeddata</a></li>
+            <li><a class="tag p-category" href="../../../../categories/machine-tags/" rel="tag">machine tags</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pelagios/" rel="tag">pelagios</a></li>
+            <li><a class="tag p-category" href="../../../../categories/pleiades/" rel="tag">pleiades</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../../08/text-of-my-talk-at-ciegl-2012/" rel="prev" title="Text of my talk at CIEGL 2012">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../new-blogs-added-to-planet-atlantides/" rel="next" title="New Blogs Added to Planet Atlantides">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

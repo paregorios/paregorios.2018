@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People from my dissertation in RDF | paregorios.org</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="http://paregorios.org/posts/2012/06/people-from-my-dissertation-in-rdf/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../how-to-get-born-for-print-bibliography/" title="How to get a born-for-print bibliography into RDF" type="text/html">
+<link rel="next" href="../roman-emperors-in-linked-data/" title="Roman Emperors as Linked Data" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="People from my dissertation in RDF">
+<meta property="og:url" content="http://paregorios.org/posts/2012/06/people-from-my-dissertation-in-rdf/">
+<meta property="og:description" content="On the road to turning my dissertation into linked data I've minted URIs for, and produced basic RDF for, all of the historical individuals I dealt with examining boundary disputes internal to the ear">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-06-15T06:28:00-05:00">
+<meta property="article:tag" content="boundaries">
+<meta property="article:tag" content="demarc">
+<meta property="article:tag" content="lawdi">
+<meta property="article:tag" content="LOD">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">People from my dissertation in RDF</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2012-06-15T06:28:00-05:00" itemprop="datePublished" title="2012-06-15 06:28">2012-06-15 06:28</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>On the road to <a href="http://horothesia.blogspot.com/search/label/demarc">turning my dissertation into linked data</a> I've minted URIs for, and produced <a href="https://github.com/paregorios/demarc/blob/master/ttl/people.ttl">basic RDF for, all of the historical individuals</a> I dealt with examining boundary disputes internal to the early Roman empire.<br><br>I used <a href="http://xmlns.com/foaf/spec/#term_Person">foaf:Person</a>, <a href="http://xmlns.com/foaf/spec/#term_name">foaf:name</a>, and <a href="http://vocab.org/bio/0.1/olb.html">bio:olb</a> (the latter from the <a href="http://vocab.org/bio/0.1/.html">BIO Vocabulary for Biographical Information</a>, developed by Ian Davis and David Galbraith). The Roman emperors who appear in my list have been aligned to <a href="http://dbpedia.org/About">dbpedia</a> resources using <a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a>. I intend to do more alignments in future to resources like dbpedia and <a href="http://viaf.org/">viaf.org</a>.<br><br>Here's <a href="https://github.com/paregorios/demarc/blob/master/xml/people.xml">the XML I started from</a> (part of an Open Document Text format file I converted from Word), and <a href="https://github.com/paregorios/demarc/blob/master/xsl/people2ttl.xsl">the XSLT I used to produce the Turtle RDF</a>, which was then cleaned up by hand.<br><br>More to come.</p>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/boundaries/" rel="tag">boundaries</a></li>
+            <li><a class="tag p-category" href="../../../../categories/demarc/" rel="tag">demarc</a></li>
+            <li><a class="tag p-category" href="../../../../categories/lawdi/" rel="tag">lawdi</a></li>
+            <li><a class="tag p-category" href="../../../../categories/lod/" rel="tag">LOD</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../how-to-get-born-for-print-bibliography/" rel="prev" title="How to get a born-for-print bibliography into RDF">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../roman-emperors-in-linked-data/" rel="next" title="Roman Emperors as Linked Data">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

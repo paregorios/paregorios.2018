@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Tom Elliott's blog and personal site">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>paregorios.org (old posts, page 37) | paregorios.org</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="http://paregorios.org/index-37.html">
+<link rel="prev" href="index-38.html" type="text/html">
+<link rel="next" href="index-36.html" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="about/">About</a>
+                </li>
+<li>
+<a href="archive.html">Archive</a>
+                </li>
+<li>
+<a href="categories/">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+
+    
+
+
+    
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/08/miko-flohr-added-to-maia-and-electra/" class="u-url">Miko Flohr Added to Maia and Electra</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/08/miko-flohr-added-to-maia-and-electra/" rel="bookmark"><time class="published dt-published" datetime="2013-08-22T18:04:00-05:00" title="2013-08-22 18:04">2013-08-22 18:04</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I've just added the <a href="http://www.mikoflohr.nl/home/rss/">feed</a> for <a href="http://www.mikoflohr.nl/home/">Miko Flohr's home page</a> to the <i><a href="http://planet.atlantides.org/maia/">Maia</a></i> and <i><a href="http://planet.atlantides.org/electra/">Electra</a></i> feed aggregators.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/08/get-list-of-machine-tags-from-flickr-api/" class="u-url">Get a List of Machine Tags from the Flickr API</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/08/get-list-of-machine-tags-from-flickr-api/" rel="bookmark"><time class="published dt-published" datetime="2013-08-21T19:41:00-05:00" title="2013-08-21 19:41">2013-08-21 19:41</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I want to know what <a href="http://horothesia.blogspot.com/2011/09/feeds-of-flickr-photos-depicting.html">Pleiades machine tags</a> are in use on photos throughout Flickr (<a href="http://code.flickr.net/2011/12/16/pleiades-a-guest-post/">more background here</a>). I thought I'd learn how to ask for that information from the <a href="http://www.flickr.com/services/api/">Flickr API</a> via a script. I requested and got an API key (see <a href="http://www.flickr.com/help/api/">http://www.flickr.com/help/api/</a>). I set up a <a href="https://pypi.python.org/pypi/virtualenv">Python virtual environment</a> and <a href="http://git-scm.com/">git</a> repository for the project. I went looking for Python code that already implemented interaction with the API and settled (somewhat arbitrarily) on <a href="http://stuvel.eu/flickrapi">Beej's Python Flickr API kit </a>(now maintained by Sybren Stüvel). Then used <span style="background-color: #cccccc; font-family: Courier New, Courier, monospace; font-size: x-small;"><a href="https://pypi.python.org/pypi/pip">pip</a> install flickrapi</span> to get the package.<br><br>Here's a command-line session running the script and showing its output:<br><br></p>
+<pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>(pleiades-flickr)darkstar:pleiades-flickr paregorios$ python src/listptags.py <br>pleiades:atteststo is used on 15 photos in Flickr<br>pleiades:denotes is used on 1 photos in Flickr<br>pleiades:depcits is used on 2 photos in Flickr<br>pleiades:depicts is used on 7229 photos in Flickr<br>pleiades:findspot is used on 2197 photos in Flickr<br>pleiades:finspot is used on 2 photos in Flickr<br>pleiades:foundat is used on 1 photos in Flickr<br>pleiades:observedat is used on 3 photos in Flickr<br>pleiades:origin is used on 225 photos in Flickr<br>pleiades:place is used on 970 photos in Flickr<br>pleiades:places is used on 19 photos in Flickr<br>pleiades:where is used on 119 photos in Flickr<br>(pleiades-flickr)darkstar:pleiades-flickr paregorios$ <br><br></code></pre>
+<br>Here's the code (<a href="https://github.com/paregorios/flickrexp/blob/aff7931b5816d70250841335ba24f9ba8b6fb970/listptags.py">version at github</a>):<br><br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>#!/usr/bin/env python<br>"""<br>A Flickr tag bot<br>"""<br><br>import argparse<br>import flickrapi<br>import json<br>import logging as l<br>import os<br>import sys<br>import traceback<br><br>from myflickr import API_KEY, NAMESPACE_DEFAULT<br><br>SCRIPT_DESC = "poll machine tags from flickr"<br><br>def main ():<br>    """ Unleash the bot! """<br><br>    global args<br>    global l<br><br>    flickr = flickrapi.FlickrAPI(API_KEY)<br>    resp = flickr.machinetags_getPairs(namespace=args.namespace, format="json")<br>    if resp[:14] == "jsonFlickrApi(":<br>        jstr = resp[14:-1]<br>        j = json.loads(jstr)<br>        ptags = [(p['_content'], p['usage']) for p in j['pairs']['pair']]<br>        for ptag in ptags:<br>            print "%s is used on %s photos in Flickr" % ptag<br><br><br>if __name__ == "__main__":<br>    try:<br>        parser = argparse.ArgumentParser(description=SCRIPT_DESC, formatter_class=argparse.ArgumentDefaultsHelpFormatter)<br>        parser.add_argument ("-n", "--namespace", default=NAMESPACE_DEFAULT, help="namespace to use in requesting machine tags")<br>        parser.add_argument ("-v", "--verbose", action="store_true", default=False, help="verbose output")<br>        args = parser.parse_args()<br>        if args.verbose:<br>            l.basicConfig(level=l.DEBUG)<br>        else:<br>            l.basicConfig(level=l.WARNING)<br>        main()<br>        sys.exit(0)<br>    except KeyboardInterrupt, e: # Ctrl-C<br>        raise e<br>    except SystemExit, e: # sys.exit()<br>        raise e<br>    except Exception, e:<br>        print "ERROR, UNEXPECTED EXCEPTION"<br>        print str(e)<br>        traceback.print_exc()<br>        os._exit(1)<br><br></code></pre>
+<br>Comments, questions, and constructive criticism welcomed!<br><br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/08/new-in-electra-atlantis/" class="u-url">New in Electra Atlantis</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/08/new-in-electra-atlantis/" rel="bookmark"><time class="published dt-published" datetime="2013-08-20T15:24:00-05:00" title="2013-08-20 15:24">2013-08-20 15:24</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I've just added the following blogs to the <a href="http://planet.atlantides.org/electra/"><i>Electra Atlantis</i> feed aggregator</a>:<br><br></p>
+<ul>
+<li><i><a href="http://www.digitalhistorians.org/">Digital Historians</a></i></li>
+<li><i><a href="http://blogs.dickinson.edu/digitalhumanities">Digital Humanities at Dickinson College</a></i></li>
+<li>Ethan Gruber's <i><a href="http://eaditor.blogspot.com/">XForms for Archives</a></i>
+</li>
+<li><i><a href="http://mesamedieval.wordpress.com/">Medieval Electronic Scholarly Alliance (MESA) Blog</a></i></li>
+</ul>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/08/new-in-maia-and-electra/" class="u-url">New in Maia and Electra</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/08/new-in-maia-and-electra/" rel="bookmark"><time class="published dt-published" datetime="2013-08-02T16:25:00-05:00" title="2013-08-02 16:25">2013-08-02 16:25</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I've just added John Muccigrosso's <a href="http://vicusmartis.blogspot.com/">Vicus Martis Tudertium</a> to <a href="http://planet.atlantides.org/maia/"><i>Maia</i></a> and <i><a href="http://planet.atlantides.org/electra">Electra</a></i>, and Robert Consoli's <i><a href="http://preldes-deficiencies.blogspot.com/">P_Redesign_Deficiencies</a></i> to <i>Electra</i>.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/07/new-in-maia-and-electra/" class="u-url">New in Maia and Electra</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/07/new-in-maia-and-electra/" rel="bookmark"><time class="published dt-published" datetime="2013-07-19T21:21:00-05:00" title="2013-07-19 21:21">2013-07-19 21:21</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>The following blogs have been added to both the <a href="http://planet.atlantides.org/maia/"><i>Maia</i></a> and <i><a href="http://planet.atlantides.org/electra/">Electra</a> Atlantides</i> feed aggregators:<br><br></p>
+<ul>
+<li><i><a href="http://avkatinformatics.wordpress.com/">Avkat Informatics</a></i></li>
+<li>
+<i><a href="http://blogs.library.duke.edu/dcthree/">Duke Collaboratory for Classics Computing</a></i> </li>
+</ul>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/07/new-in-maia_17/" class="u-url">New in Maia</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/07/new-in-maia_17/" rel="bookmark"><time class="published dt-published" datetime="2013-07-17T16:49:00-05:00" title="2013-07-17 16:49">2013-07-17 16:49</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I've just added the following blogs to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis feed aggregator</a>:<br><br></p>
+<ul>
+<li>James Hamrick's <i><a href="http://ancientbookshelf.blogspot.com/">The Ancient Bookshelf</a></i>
+</li>
+<li>Michael Satlow's <i><a href="http://74.220.215.212/~mlsatlow/">Then and Now</a></i>
+</li>
+</ul>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/07/more-new-in-maia/" class="u-url">More New in Maia</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/07/more-new-in-maia/" rel="bookmark"><time class="published dt-published" datetime="2013-07-01T22:40:00-05:00" title="2013-07-01 22:40">2013-07-01 22:40</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Hat-tip to <a href="http://rogueclassicism.com/">David Meadows</a> for alerting me to these, all of which are now added to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis Feed Aggregator</a>:<br><br><br></p>
+<ul>
+<li>Rob Cain (<i><a href="http://www.ancientromerefocused.org/">Ancient Rome Refocused</a></i>)</li>
+<li><i><a href="http://www.elginism.com/">Elginism</a></i></li>
+<li><i><a href="http://www.classics.cam.ac.uk/">Faculty of Classics, Cambridge</a></i></li>
+<li><i><a href="http://farrago-cambridge.blogspot.com/">Farrago</a></i></li>
+<li>Szabó Csaba (<i><a href="http://religioacademici.wordpress.com/">About Roman Religion</a></i>)</li>
+</ul>
+<br><br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/07/new-in-maia/" class="u-url">New in Maia</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/07/new-in-maia/" rel="bookmark"><time class="published dt-published" datetime="2013-07-01T18:02:00-05:00" title="2013-07-01 18:02">2013-07-01 18:02</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I've just added the following blogs to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis feed aggregator</a>:<br><br></p>
+<ul>
+<li>Roberta Mazza's <i><a href="http://facesandvoices.wordpress.com/">Faces &amp; Voices</a></i>
+</li>
+<li>David Stuart's <i><a href="http://decipherment.wordpress.com/">Maya Decipherment</a></i>
+</li>
+<li>Andrew West's <i><a href="http://babelstone.blogspot.com/">Babelstone</a></i>
+</li>
+</ul>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/06/more-new-content-in-planet-atlantides/" class="u-url">More New Content in Planet Atlantides</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/06/more-new-content-in-planet-atlantides/" rel="bookmark"><time class="published dt-published" datetime="2013-06-21T22:49:00-05:00" title="2013-06-21 22:49">2013-06-21 22:49</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I just added the following blogs to the indicated feed aggregators in the <a href="http://planet.atlantides.org/">Planet Atlantides</a> constellation:<br><br></p>
+<ul>
+<li>
+<a href="http://aiageo.wordpress.com/">AIA Geospatial Interest Group blog</a> (<a href="http://planet.atlantides.org/electra/">electra</a>, <a href="http://planet.atlantides.org/maia/">maia</a>)</li>
+<li>Jim Newhard's <i><a href="http://blogs.cofc.edu/thearchaeoinformant/">The Archaeoinformant</a></i> (electra, maia)</li>
+<li>
+<a href="http://finds.org.uk/blogs/piercebridge/">The Piercebridge Project blog</a> (maia)</li>
+<li>
+<i><a href="http://books.openedition.org/efr/">Publications de l’École française de Rome</a></i> (<a href="http://planet.atlantides.org/potamos/">potamos</a>)</li>
+</ul>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/06/new-in-planet-atlantides_21/" class="u-url">New in Planet Atlantides</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="posts/2013/06/new-in-planet-atlantides_21/" rel="bookmark"><time class="published dt-published" datetime="2013-06-21T17:14:00-05:00" title="2013-06-21 17:14">2013-06-21 17:14</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>I have just added the following resources to the indicated blog aggregators in the <i><a href="http://planet.atlantides.org/">Planet Atlantides</a></i> constellation:<br><br></p>
+<ul>
+<li>
+<i><a href="http://sites.tufts.edu/perseuscatalog/">Perseus Catalog Blog</a></i> (<a href="http://planet.atlantides.org/electra/">electra</a>, <a href="http://planet.atlantides.org/maia/">maia</a>)</li>
+<li>Robert Consoli's <i><a href="http://phosphor-ostia.blogspot.com/">Phosphor-Ostia Blog</a></i> (maia)</li>
+<li>Robert Consoli's <i><a href="http://squinchpix.blogspot.com/">Squinches</a></i> blog (electra, maia)</li>
+</ul>
+</div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="index-38.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="index-36.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:paregorios@hotmail.com">Tom Elliott</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
