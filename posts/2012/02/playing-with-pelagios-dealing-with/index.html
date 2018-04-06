@@ -18,6 +18,7 @@
 <meta property="og:description" content="Latest in a Playing with PELAGIOS seriesSome of the PELAGIOS partners distribute their annotation RDF in a relatively small number of files. Others (like SPQR and ANS) have a very large number of file">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2012-02-02T20:48:00-06:00">
+<meta property="article:tag" content="horothesia">
 <meta property="article:tag" content="lawdi">
 <meta property="article:tag" content="linkeddata">
 <meta property="article:tag" content="LOD">
@@ -97,7 +98,8 @@
 <a href="http://www.gnu.org/software/bash/">Bash</a> to the rescue (but note that doing <a href="http://4store.org/trac/wiki/ImportData#Multiplefiles">one file at a time has a cost</a> on the 4store side):<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ for f in *.rdf; do 4s-import -av pelagios $f; done<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.00000.rdf&gt;<br>Pass 1, processed 10 triples (10)<br>Pass 2, processed 10 triples, 8912 triples/s<br>Updating index<br>Index update took 0.000890 seconds<br>Imported 10 triples, average 4266 triples/s<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.101.rdf&gt;<br>Pass 1, processed 11 triples (11)<br>Pass 2, processed 11 triples, 9856 triples/s<br>Updating index<br>Index update took 0.000936 seconds<br>Imported 11 triples, average 4493 triples/s<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.10176.rdf&gt;<br>Pass 1, processed 8 triples (8)<br>Pass 2, processed 8 triples, 6600 triples/s<br>Updating index<br>Index update took 0.000892 seconds<br>Imported 8 triples, average 3256 triples/s<br>... <br></code></pre>This took a while. There are 86,200 files in the ANS annotation batch.<br><br>Note the use of the -a option on 4s-import to ensure the triples are added to the current contents of the database, rather than replacing them! Note also the -v option, which is what gives you the report (otherwise, it's silent and that makes my ctrl-c finger twitchy).<br><br>Now, back to the SPARQL mines.
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../../../categories/lawdi/" rel="tag">lawdi</a></li>
+<li><a class="tag p-category" href="../../../../categories/horothesia/" rel="tag">horothesia</a></li>
+            <li><a class="tag p-category" href="../../../../categories/lawdi/" rel="tag">lawdi</a></li>
             <li><a class="tag p-category" href="../../../../categories/linkeddata/" rel="tag">linkeddata</a></li>
             <li><a class="tag p-category" href="../../../../categories/lod/" rel="tag">LOD</a></li>
             <li><a class="tag p-category" href="../../../../categories/pelagios/" rel="tag">pelagios</a></li>

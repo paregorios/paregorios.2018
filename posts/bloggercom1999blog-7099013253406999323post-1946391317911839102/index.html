@@ -17,6 +17,7 @@
 <meta property="og:description" content="Sometimes when you put together a particular list of character strings, a particular use case, a particular audience, and default behaviors, you don't get what you need. Consider an arbitrarily-ordere">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2015-07-09T14:53:00-05:00">
+<meta property="article:tag" content="horothesia">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -135,7 +136,9 @@
 <br>This approach depends upon the assumption that the strings you're starting with are really Unicode strings. If you were a huge regular expressions fan, you could use the python re module to perform a similar test, but I'm betting it would run slower.<br><br>If you weren't so confident in the consistency of your source list, you'd need to do some preprocessing. Unicode normalization might be necessary. You might have to resort to the chardet module in order to guess at encodings.<br><h3>Stripping punctuation</h3>Now here's a job for regular expressions. We can make short work of this task especially if we take advantage of <a href="https://pypi.python.org/pypi/regex">the new, alternative <i>regex</i> package for Python</a>, which is intended to eventually replace the current implementation.<br><br><pre style="background-image: URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif); background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> &gt;&gt;&gt; import regex as re  <br> &gt;&gt;&gt; rx = re.compile(ur'[\p{P}_\d]+')  <br> &gt;&gt;&gt; t = u'Ακάμας, Όμιλος Ανάδειξης Μνημείων Σαλαμίνος, Ενημερωτικό Δελτίο'  <br> &gt;&gt;&gt; print(rx.sub(u'', t))  <br> Ακάμας Όμιλος Ανάδειξης Μνημείων Σαλαμίνος Ενημερωτικό Δελτίο  </code></pre>
 <h2>Putting it all together</h2>Consider the following script:<br><br>
 </div>
-    <aside class="postpromonav"><nav></nav></aside></article>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/horothesia/" rel="tag">horothesia</a></li>
+        </ul></nav></aside></article>
 </div>
         <!--End of body content-->
 
