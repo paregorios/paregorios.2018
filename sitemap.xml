@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://paregorios.org/</loc>
-  <lastmod>2018-04-06T22:24:00Z</lastmod>
+  <lastmod>2018-04-06T23:01:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/2007/</loc>
@@ -740,6 +740,14 @@
  <url>
   <loc>http://paregorios.org/listings/</loc>
   <lastmod>2018-04-06T09:46:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://paregorios.org/me/</loc>
+  <lastmod>2018-04-06T23:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://paregorios.org/me/index.src.html</loc>
+  <lastmod>2018-04-06T23:02:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/posts/2007/09/bibliographic-proximity/</loc>
