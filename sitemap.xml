@@ -63,11 +63,11 @@
  </url>
  <url>
   <loc>http://paregorios.org/archive.html</loc>
-  <lastmod>2018-04-08T00:03:00Z</lastmod>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/categories/</loc>
-  <lastmod>2018-04-08T12:20:00Z</lastmod>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/categories/3d/</loc>
@@ -290,12 +290,20 @@
   <lastmod>2018-04-06T23:11:00Z</lastmod>
  </url>
  <url>
+  <loc>http://paregorios.org/categories/hosting/</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://paregorios.org/categories/hotel-pools/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/categories/hsv/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://paregorios.org/categories/htaccess/</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/categories/images/</loc>
@@ -502,8 +510,20 @@
   <lastmod>2018-04-06T22:06:00Z</lastmod>
  </url>
  <url>
+  <loc>http://paregorios.org/categories/rsync/</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://paregorios.org/categories/sparql/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://paregorios.org/categories/ssh/</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://paregorios.org/categories/ssl/</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/categories/stats/</loc>
@@ -723,7 +743,7 @@
  </url>
  <url>
   <loc>http://paregorios.org/index-42.html</loc>
-  <lastmod>2018-04-08T00:03:00Z</lastmod>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/index-5.html</loc>
@@ -2448,5 +2468,9 @@
  <url>
   <loc>http://paregorios.org/posts/2018/04/hello-world-again/</loc>
   <lastmod>2018-04-08T00:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://paregorios.org/posts/2018/04/hosting_quest/</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </url>
 </urlset>

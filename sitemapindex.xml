@@ -31,7 +31,7 @@
  </sitemap>
  <sitemap>
   <loc>http://paregorios.org/categories/apache.xml</loc>
-  <lastmod>2018-04-06T23:11:00Z</lastmod>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://paregorios.org/categories/arachne.xml</loc>
@@ -226,12 +226,20 @@
   <lastmod>2018-04-06T23:11:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://paregorios.org/categories/hosting.xml</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://paregorios.org/categories/hotel-pools.xml</loc>
   <lastmod>2018-04-06T23:11:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://paregorios.org/categories/hsv.xml</loc>
   <lastmod>2018-04-06T23:11:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://paregorios.org/categories/htaccess.xml</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://paregorios.org/categories/images.xml</loc>
@@ -438,8 +446,20 @@
   <lastmod>2018-04-06T23:11:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://paregorios.org/categories/rsync.xml</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://paregorios.org/categories/sparql.xml</loc>
   <lastmod>2018-04-06T23:11:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://paregorios.org/categories/ssh.xml</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://paregorios.org/categories/ssl.xml</loc>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://paregorios.org/categories/stats.xml</loc>
@@ -515,10 +535,10 @@
  </sitemap>
  <sitemap>
   <loc>http://paregorios.org/rss.xml</loc>
-  <lastmod>2018-04-08T12:20:00Z</lastmod>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://paregorios.org/sitemap.xml</loc>
-  <lastmod>2018-04-08T12:20:00Z</lastmod>
+  <lastmod>2018-04-08T19:54:00Z</lastmod>
  </sitemap>
 </sitemapindex>
