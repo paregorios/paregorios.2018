@@ -63,7 +63,7 @@
  </url>
  <url>
   <loc>http://paregorios.org/archive.html</loc>
-  <lastmod>2018-04-06T22:06:00Z</lastmod>
+  <lastmod>2018-04-08T00:03:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/categories/</loc>
@@ -719,7 +719,7 @@
  </url>
  <url>
   <loc>http://paregorios.org/index-42.html</loc>
-  <lastmod>2018-04-06T23:11:00Z</lastmod>
+  <lastmod>2018-04-08T00:03:00Z</lastmod>
  </url>
  <url>
   <loc>http://paregorios.org/index-5.html</loc>
@@ -2440,5 +2440,9 @@
  <url>
   <loc>http://paregorios.org/posts/2018/02/preserving-accented-and-non-roman/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://paregorios.org/posts/2018/04/hello-world-again/</loc>
+  <lastmod>2018-04-08T00:03:00Z</lastmod>
  </url>
 </urlset>
