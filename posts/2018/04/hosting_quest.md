@@ -9,7 +9,7 @@
 .. type: text
 -->
 
-I'm current hosting *paregorios.org* via GitHub pages, but I'm looking for an alternative because there are features I need that GitHub doesn't provide. Here, I think, is a description of my ideal solution:
+I'm currently hosting *paregorios.org* via GitHub pages, but I'm looking for an alternative because there are features I need that GitHub doesn't provide. Here, I think, is a description of my ideal solution:
 
  - Apache web server with ability to use ```.htaccess``` files (because I want to be able to issue HTTP redirects)
  - SSL with Let's Encrypt
