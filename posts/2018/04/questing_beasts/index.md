@@ -22,6 +22,9 @@ For those at home following my [Hosting Quest](link://slug/hosting_quest), here 
  - [Vidahost](https://www.vidahost.com/web-hosting/pricing)
  - [Webarchitects](https://www.webarchitects.co.uk/shared-hosting)
 
+There's a lot to like about all these recommendations; however, I'm going with Tiger Technologies for now. I like their combination of green power, [Apache](https://httpd.apache.org/), free [HTTPS over TLS](https://en.wikipedia.org/wiki/HTTPS) using a certificate from [Let's Encrypt](https://letsencrypt.org/), free domain name management and renewal, free WHOIS privacy, email, ssh/shell, and unmetered bandwidth.
+
+I'll let you know how it goes. 
 
 
 

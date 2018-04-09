@@ -1,4 +1,4 @@
-Sitemap: http://paregorios.org/sitemapindex.xml
+Sitemap: https://paregorios.org/sitemapindex.xml
 
 User-Agent: *
 Host: paregorios.org
