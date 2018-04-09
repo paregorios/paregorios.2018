@@ -19,7 +19,7 @@ Which Tom Elliott, you ask? The following information will probably help you dis
  - [Humanities Commons: paregorios](https://hcommons.org/members/paregorios/)
  - [OrcID: 0000-0002-4114-6677](http://orcid.org/0000-0002-4114-6677)
  - [VIAF ID: 309842724](http://viaf.org/viaf/309842724)
- - [http://www.paregorios.org/me](https://www.paregorios.org/me)
+ - [http://paregorios.org/me](https://paregorios.org/me)
  - he/him/his
 
 ## Work
