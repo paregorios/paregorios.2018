@@ -138,6 +138,7 @@ NAVIGATION_LINKS = {
         ("/about/", "About"),
         ("/archive.html", "Archive"),
         ("/categories/", "Tags"),
+        ("/resources/", "Resources"),
         ("/rss.xml", "RSS feed"),
     ),
 }
@@ -634,6 +635,8 @@ REDIRECTIONS = []
 DEPLOY_COMMANDS = {
     'default': [
         "rsync -rav --delete output/ paregorios.org:/var/www/html/pa/paregorios.org",
+        "ssh paregorios.org mkdir -p /var/www/html/pa/paregorios.org/resources/roman-emperors",
+        "rsync -rav --delete ../../R/roman-emperors/docs/ paregorios.org:/var/www/html/pa/paregorios.org/resources/roman-emperors/"
     ]
 }
 
