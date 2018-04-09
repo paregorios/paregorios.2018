@@ -25,7 +25,7 @@ SITE_URL = "https://paregorios.org/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://paregorios.org/"
-BLOG_EMAIL = "paregorios@hotmail.com"
+BLOG_EMAIL = "ipse@paregorios.org"
 BLOG_DESCRIPTION = "Tom Elliott's blog and personal site"  # (translatable)
 
 # Nikola is multilingual!

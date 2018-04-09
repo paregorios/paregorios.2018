@@ -9,7 +9,7 @@
 .. type: text
 -->
 
-This website belongs to Tom Elliott. 
+This website belongs to Tom Elliott (ipse@paregorios.org). 
 
 Which Tom Elliott, you ask? The following information will probably help you disambiguate me from the homonymous politician, stunt man, footballer, investment banker, psychic, etc.
 
