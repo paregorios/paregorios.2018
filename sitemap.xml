@@ -63,11 +63,11 @@
  </url>
  <url>
   <loc>https://paregorios.org/archive.html</loc>
-  <lastmod>2018-04-12T15:41:00Z</lastmod>
+  <lastmod>2018-04-12T19:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/</loc>
-  <lastmod>2018-04-12T13:21:00Z</lastmod>
+  <lastmod>2018-04-12T19:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/3d/</loc>
@@ -88,6 +88,10 @@
  <url>
   <loc>https://paregorios.org/categories/ancgeo/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/categories/ancient-history/</loc>
+  <lastmod>2018-04-12T19:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/ancmath/</loc>
@@ -166,12 +170,20 @@
   <lastmod>2018-04-06T22:06:00Z</lastmod>
  </url>
  <url>
+  <loc>https://paregorios.org/categories/cfp/</loc>
+  <lastmod>2018-04-12T19:28:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://paregorios.org/categories/ciegl2012/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/citizenship/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/categories/climate/</loc>
+  <lastmod>2018-04-12T19:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/coffee/</loc>
@@ -255,10 +267,6 @@
  </url>
  <url>
   <loc>https://paregorios.org/categories/exif/</loc>
-  <lastmod>2018-04-12T13:21:00Z</lastmod>
- </url>
- <url>
-  <loc>https://paregorios.org/categories/exiftool-exif-images-geodata-privacy/</loc>
   <lastmod>2018-04-12T13:21:00Z</lastmod>
  </url>
  <url>
@@ -618,10 +626,6 @@
   <lastmod>2018-04-12T14:47:00Z</lastmod>
  </url>
  <url>
-  <loc>https://paregorios.org/galleries/moontown-mornings/</loc>
-  <lastmod>2018-04-12T14:37:00Z</lastmod>
- </url>
- <url>
   <loc>https://paregorios.org/galleries/moontown_mornings/</loc>
   <lastmod>2018-04-12T15:19:00Z</lastmod>
  </url>
@@ -771,7 +775,7 @@
  </url>
  <url>
   <loc>https://paregorios.org/index-42.html</loc>
-  <lastmod>2018-04-12T15:41:00Z</lastmod>
+  <lastmod>2018-04-12T19:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/index-5.html</loc>
@@ -2492,6 +2496,10 @@
  <url>
   <loc>https://paregorios.org/posts/2018/02/preserving-accented-and-non-roman/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/posts/2018/04/ancient-climate-cfp/</loc>
+  <lastmod>2018-04-12T19:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/posts/2018/04/hello-world-again/</loc>
