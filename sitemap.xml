@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://paregorios.org/</loc>
-  <lastmod>2018-04-09T16:43:00Z</lastmod>
+  <lastmod>2018-04-12T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/2007/</loc>
@@ -2476,6 +2476,10 @@
  <url>
   <loc>https://paregorios.org/posts/2018/04/questing_beasts/</loc>
   <lastmod>2018-04-09T09:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/python-on-osx/</loc>
+  <lastmod>2018-04-12T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/resources/</loc>
