@@ -190,6 +190,18 @@
   <lastmod>2018-04-09T16:22:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://paregorios.org/categories/exif.xml</loc>
+  <lastmod>2018-04-12T13:21:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://paregorios.org/categories/exiftool-exif-images-geodata-privacy.xml</loc>
+  <lastmod>2018-04-12T13:21:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://paregorios.org/categories/exiftool.xml</loc>
+  <lastmod>2018-04-12T13:21:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://paregorios.org/categories/fda.xml</loc>
   <lastmod>2018-04-09T16:22:00Z</lastmod>
  </sitemap>
@@ -204,6 +216,10 @@
  <sitemap>
   <loc>https://paregorios.org/categories/gawd.xml</loc>
   <lastmod>2018-04-09T16:22:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://paregorios.org/categories/geodata.xml</loc>
+  <lastmod>2018-04-12T13:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/grants.xml</loc>
@@ -243,7 +259,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/images.xml</loc>
-  <lastmod>2018-04-09T16:22:00Z</lastmod>
+  <lastmod>2018-04-12T13:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/inscriptions.xml</loc>
@@ -402,6 +418,10 @@
   <lastmod>2018-04-09T16:22:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://paregorios.org/categories/privacy.xml</loc>
+  <lastmod>2018-04-12T13:21:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://paregorios.org/categories/prosopography.xml</loc>
   <lastmod>2018-04-09T16:22:00Z</lastmod>
  </sitemap>
@@ -530,15 +550,23 @@
   <lastmod>2018-04-09T16:22:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://paregorios.org/galleries/moontown-mornings/rss.xml</loc>
+  <lastmod>2018-04-12T14:46:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://paregorios.org/galleries/moontown_mornings/rss.xml</loc>
+  <lastmod>2018-04-12T15:41:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://paregorios.org/galleries/rss.xml</loc>
-  <lastmod>2018-04-09T18:08:00Z</lastmod>
+  <lastmod>2018-04-12T15:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/rss.xml</loc>
-  <lastmod>2018-04-09T16:22:00Z</lastmod>
+  <lastmod>2018-04-12T13:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/sitemap.xml</loc>
-  <lastmod>2018-04-12T13:01:00Z</lastmod>
+  <lastmod>2018-04-12T15:41:00Z</lastmod>
  </sitemap>
 </sitemapindex>
