@@ -5,11 +5,13 @@
 .. tags: hosting
 .. category: 
 .. link: 
-.. description: 
+.. description: The outcome of my quest for a new host for my personal web presence.
 .. type: text
 -->
 
 For those at home following my [Hosting Quest](link://slug/hosting_quest), here are the suggested providers given me (so far) by friends and social media contacts:
+
+<!-- TEASER_END -->
 
  - [AWS Lightsail](https://aws.amazon.com/lightsail/)
  - [Cloudvault.me](https://cloudvault.me/)
