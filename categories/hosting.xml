@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>paregorios.org (Posts about hosting)</title><link>https://paregorios.org/</link><description></description><atom:link href="https://paregorios.org/categories/hosting.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:paregorios@hotmail.com"&gt;Tom Elliott&lt;/a&gt; </copyright><lastBuildDate>Mon, 09 Apr 2018 16:22:02 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Questing Beasts</title><link>https://paregorios.org/posts/2018/04/questing_beasts/</link><dc:creator>Tom Elliott</dc:creator><description>&lt;div&gt;&lt;p&gt;For those at home following my &lt;a href="https://paregorios.org/posts/2018/04/hosting_quest"&gt;Hosting Quest&lt;/a&gt;, here are the suggested providers given me (so far) by friends and social media contacts:&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>paregorios.org (Posts about hosting)</title><link>https://paregorios.org/</link><description></description><atom:link href="https://paregorios.org/categories/hosting.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:ipse@paregorios.org"&gt;Tom Elliott&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;&lt;img
+alt="Creative Commons License" style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/80x15.png" /&gt;&lt;/a&gt;
+&lt;span xmlns:dct="http://purl.org/dc/terms/"
+property="dct:title"&gt;&lt;strong&gt;&lt;em&gt;paregorios.org&lt;/em&gt;&lt;/strong&gt;&lt;/span&gt; by
+&lt;a xmlns:cc="http://creativecommons.org/ns#" href="https://paregorios.org/me"
+property="cc:attributionName" rel="cc:attributionURL"&gt;Tom Elliott&lt;/a&gt; is
+licensed under a &lt;a rel="license"
+href="http://creativecommons.org/licenses/by/4.0/"&gt;Creative Commons
+Attribution 4.0 International License&lt;/a&gt;.
+</copyright><lastBuildDate>Sat, 21 Apr 2018 15:51:15 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Questing Beasts</title><link>https://paregorios.org/posts/2018/04/questing_beasts/</link><dc:creator>Tom Elliott</dc:creator><description>&lt;div&gt;&lt;p&gt;For those at home following my &lt;a href="https://paregorios.org/posts/2018/04/hosting_quest"&gt;Hosting Quest&lt;/a&gt;, here are the suggested providers given me (so far) by friends and social media contacts:&lt;/p&gt;
+&lt;!-- TEASER_END --&gt;
+
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://aws.amazon.com/lightsail/"&gt;AWS Lightsail&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://cloudvault.me/"&gt;Cloudvault.me&lt;/a&gt;&lt;/li&gt;
@@ -14,6 +27,8 @@
 &lt;/ul&gt;
 &lt;p&gt;There's a lot to like about all these recommendations; however, I'm going with Tiger Technologies for now. I like their combination of green power, &lt;a href="https://httpd.apache.org/"&gt;Apache&lt;/a&gt;, free &lt;a href="https://en.wikipedia.org/wiki/HTTPS"&gt;HTTPS over TLS&lt;/a&gt; using a certificate from &lt;a href="https://letsencrypt.org/"&gt;Let's Encrypt&lt;/a&gt;, free domain name management and renewal, free WHOIS privacy, email, ssh/shell, and unmetered bandwidth.&lt;/p&gt;
 &lt;p&gt;I'll let you know how it goes. &lt;/p&gt;&lt;/div&gt;</description><category>hosting</category><guid>https://paregorios.org/posts/2018/04/questing_beasts/</guid><pubDate>Sun, 08 Apr 2018 20:46:29 GMT</pubDate></item><item><title>Hosting Quest</title><link>https://paregorios.org/posts/2018/04/hosting_quest/</link><dc:creator>Tom Elliott</dc:creator><description>&lt;div&gt;&lt;p&gt;I'm currently hosting &lt;em&gt;paregorios.org&lt;/em&gt; via GitHub pages, but I'm looking for an alternative because there are features I need that GitHub doesn't provide. Here, I think, is a description of my ideal solution:&lt;/p&gt;
+&lt;!-- TEASER_END --&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Apache web server with ability to use &lt;code&gt;.htaccess&lt;/code&gt; files (because I want to be able to issue HTTP redirects)&lt;/li&gt;
 &lt;li&gt;SSL with Let's Encrypt&lt;/li&gt;

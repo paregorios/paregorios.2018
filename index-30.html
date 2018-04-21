@@ -83,7 +83,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/02/playing-with-pelagios-dealing-with/" rel="bookmark"><time class="published dt-published" datetime="2012-02-02T20:48:00-06:00" title="2012-02-02 20:48">2012-02-02 20:48</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <i>Latest in a <a href="http://horothesia.blogspot.com/search/label/pelagiosplay">Playing with PELAGIOS series</a></i><br><br>Some of the PELAGIOS partners distribute their annotation RDF in a relatively small number of files. Others (like SPQR and ANS) have a very large number of files. This makes <a href="http://horothesia.blogspot.com/2012/02/playing-with-pelagios-nomisma.html">the technique I used earlier</a> for adding triples to the database ungainly. Fortunately,<a href="http://4store.org/trac/wiki/ImportData"> 4store provides some command line methods for loading triples</a>.<br><br>First, stop the 4store http server (<a href="http://4store.org/trac/wiki/SparqlServer#ShuttingDown">why?</a>):<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ killall 4s-httpd<br></code></pre>Try to import all the RDF files.  Rats!<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ 4s-import -a pelagios *.rdf<br>-bash: /Applications/4store.app/Contents/MacOS/bin/4s-import: Argument list too long<br></code></pre>
 <a href="http://www.gnu.org/software/bash/">Bash</a> to the rescue (but note that doing <a href="http://4store.org/trac/wiki/ImportData#Multiplefiles">one file at a time has a cost</a> on the 4store side):<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ for f in *.rdf; do 4s-import -av pelagios $f; done<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.00000.rdf&gt;<br>Pass 1, processed 10 triples (10)<br>Pass 2, processed 10 triples, 8912 triples/s<br>Updating index<br>Index update took 0.000890 seconds<br>Imported 10 triples, average 4266 triples/s<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.101.rdf&gt;<br>Pass 1, processed 11 triples (11)<br>Pass 2, processed 11 triples, 9856 triples/s<br>Updating index<br>Index update took 0.000936 seconds<br>Imported 11 triples, average 4493 triples/s<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.10176.rdf&gt;<br>Pass 1, processed 8 triples (8)<br>Pass 2, processed 8 triples, 6600 triples/s<br>Updating index<br>Index update took 0.000892 seconds<br>Imported 8 triples, average 3256 triples/s<br>... <br></code></pre>This took a while. There are 86,200 files in the ANS annotation batch.<br><br>Note the use of the -a option on 4s-import to ensure the triples are added to the current contents of the database, rather than replacing them! Note also the -v option, which is what gives you the report (otherwise, it's silent and that makes my ctrl-c finger twitchy).<br><br>Now, back to the SPARQL mines.
     </div>
@@ -94,7 +94,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/02/playing-with-pelagios-arachne-was-easy/" rel="bookmark"><time class="published dt-published" datetime="2012-02-01T23:18:00-06:00" title="2012-02-01 23:18">2012-02-01 23:18</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>Querying <a href="http://pleiades.stoa.org/">Pleiades</a> annotations out of <a href="http://arachne.uni-koeln.de/drupal/node/235#arachnePelagiosCooperation">Arachne RDF</a> was as simple as loading the Arachne Objects by Places RDF file into 4store <a href="http://horothesia.blogspot.com/2012/02/playing-with-pelagios-nomisma.html">the same way I did nomisma and running the same SPARQL query</a>.  Cost: 5 minutes. Now I know about 29 objects in the Arachne database that they think are related to <a href="http://pleiades.stoa.org/places/462086/">Akragas/Agrigentum</a>. For example:<br><br></p>
 <ul>
 <li>41149: Sarkophag mit dem Hippolytosmythos (Agrigent, S. Nicola):         <div class="p1">
@@ -114,7 +114,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/02/playing-with-pelagios-nomisma/" rel="bookmark"><time class="published dt-published" datetime="2012-02-01T21:57:00-06:00" title="2012-02-01 21:57">2012-02-01 21:57</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>So, I want to see how hard it is to query the <a href="http://www.w3.org/RDF/">RDF</a> that <a href="http://pelagios-project.blogspot.com/">PELAGIOS</a> partners are putting together. The first experiment is documented below.<br><br><b>Step 1: Set up a <a href="http://en.wikipedia.org/wiki/Triplestore">Triplestore</a> (something to load the RDF into and support queries)</b><br><br><i>Context: I'm a triplestore n00b. </i><br><br>I found Jeni Tennison's <a href="http://www.jenitennison.com/blog/node/152">Getting Started with RDF and SPARQL Using 4store and RDF.rb</a> and, though I had no interest in messing around with <a href="http://www.ruby-lang.org/en/">Ruby</a> as part of this exercise, the recommendation of <a href="http://4store.org/">4store</a> as a triplestore sounded good, so I went hunting for <a href="http://4store.org/download/macosx/">a Mac binary</a> and downloaded it.<br><br><b>Step 2: Grab RDF describing content in Nomisma.org</b><br><br><i>Context: I'm a point-and-click expert.</i><br><br>I downloaded the PELAGIOS-conformant RDF data published by Nomisma.org at <a href="http://nomisma.org/nomisma.org.pelagios.rdf">http://nomisma.org/nomisma.org.pelagios.rdf</a>.<br><br><i>Background: "<a href="http://nomisma.org/">Nomisma.org</a> is a collaborative effort to provide stable digital representations of numismatic concepts and entities, for example the generic idea of a coin hoard or an actual hoard as documented in the print publication An Inventory of Greek Coin Hoards (IGCH)."</i><br><br><b>Step 3: Fire up 4store and load in the nomisma.org </b><br><br><i>Context: I'm a 4store n00b, but I can cut and paste, read and reason, and experiment.</i><br><br>Double-clicked the 4store icon in my Applications folder. It opened a terminal window.<br><br>To create and start up an empty database for my triples, I followed <a href="http://4store.org/trac/wiki/CreateDatabase">the 4store instructions</a> and Tennison's post (mutatis mutandis) and so typed the following in the terminal window ("pelagios" is the name I gave to my database; you could call yours "ray" or "jay" if you like):<br></p>
 <pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ 4s-backend-setup pelagios<br>$ 4s-backend pelagios<br></code></pre>Then I started up <a href="http://4store.org/trac/wiki/SparqlServer">4store's SPARQL http server</a> and aimed it at the still-empty "pelagios" database so I could load my data and try my hand at some queries:<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ 4s-httpd pelagios<br></code></pre>Loading the nomisma data was then as simple as moving to the directory where I'd saved the RDF file and typing:<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ curl -T nomisma.org.pelagios.rdf 'http://localhost:8080/data/http://nomisma.org/nomisma.org.pelagios.rdf/'<br></code></pre>Note how the URI base for nomisma items is appended to the URL string passed via curl. This is how you specify the "model URI" for the graph of triples that gets created from the RDF.<br><br><b>Step 4: Try to construct a query and dig out some data.</b><br><br><i>Context: I'm a SPARQL n00b, but I'd done some SQL back in the day and XML and namespaces are pretty much burned into my soul at this point. </i><br><br>Following Tennison's example, I pointed my browser at http://localhost:8080/test/. I got 4store's SPARQL test query interface. I googled around looking grumpily at different SPARQL "how-tos" and "getting starteds" and trying stuff and pondering repeated failure until this worked:<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code><br>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;<br>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;<br>PREFIX oac: &lt;http://www.openannotation.org/ns/&gt;<br><br>SELECT ?x<br>WHERE {<br> ?x oac:hasBody &lt;http://pleiades.stoa.org/places/462086&gt; .<br>} <br><br></code></pre>That's "find the ID of every OAC Annotation in the triplestore that's linked to Pleiades Place 462086" (i.e., <a href="http://pleiades.stoa.org/places/462086">Akragas/Agrigentum, modern Agrigento in Sicily</a>). It's a list like this: <br><ul>
 <li>http://nomisma.org/nomisma.org.pelagios.rdf#igch1910-agrigentum-5</li>
@@ -139,7 +139,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/01/new-on-electra-tapas-news/" rel="bookmark"><time class="published dt-published" datetime="2012-01-26T15:07:00-06:00" title="2012-01-26 15:07">2012-01-26 15:07</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>This morning I've added the <a href="http://tapasproject.org/news">News feed</a> from the <a href="http://tapasproject.org/">TEI Archiving, Publishing and Access Service (TAPAS) Project website</a> to the <a href="http://planet.atlantides.org/electra/">Electra Atlantis Feed Aggregator</a>.</p>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/new-on-maia-aia-fieldnotes/" class="u-url">New on Maia: AIA Fieldnotes</a></h1>
@@ -149,7 +149,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/01/new-on-maia-aia-fieldnotes/" rel="bookmark"><time class="published dt-published" datetime="2012-01-25T15:59:00-06:00" title="2012-01-25 15:59">2012-01-25 15:59</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I've just added the feed for the <a href="http://www.archaeological.org/fieldnotes/">Fieldnotes section on the website of the Archaeological Institute of America</a> to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis Feed Aggregator</a>. Hat-tip to <a href="http://isaw.nyu.edu/people/staff/chuck-jones">Chuck Jones</a> for the notice.</p>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/horothesia-to-go-dark-18-january-2012/" class="u-url">Horothesia to go dark 18 January 2012</a></h1>
@@ -159,7 +159,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/01/horothesia-to-go-dark-18-january-2012/" rel="bookmark"><time class="published dt-published" datetime="2012-01-17T20:48:00-06:00" title="2012-01-17 20:48">2012-01-17 20:48</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>Following <a href="http://wikimediafoundation.org/wiki/English_Wikipedia_anti-SOPA_blackout">Wikipedia</a> and others, I will be taking my blog dark tomorrow to protest <a href="http://thomas.loc.gov/cgi-bin/bdquery/z?d112:h.r.3261:">SOPA</a> and <a href="http://thomas.loc.gov/cgi-bin/bdquery/z?d112:s.968:">PIPA</a>.</p>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/additions-to-electra-and-maia/" class="u-url">Additions to Electra and Maia</a></h1>
@@ -169,7 +169,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/01/additions-to-electra-and-maia/" rel="bookmark"><time class="published dt-published" datetime="2012-01-12T15:46:00-06:00" title="2012-01-12 15:46">2012-01-12 15:46</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>This morning I've made the following additions to the indicated <a href="http://planet.atlantides.org/">Planet Atlantides feed aggregators</a>:<br></p>
 <ul>
 <li>
@@ -189,7 +189,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2012/01/changes-to-electra-and-maia-atlantis/" rel="bookmark"><time class="published dt-published" datetime="2012-01-11T23:34:00-06:00" title="2012-01-11 23:34">2012-01-11 23:34</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I've just added the feed for the news blog on the following site to both <a href="http://planet.atlantides.org/maia/">Maia</a> and <a href="http://planet.atlantides.org/electra/">Electra</a>:<br><br></p>
 <ul><li>
 <a href="http://mappaproject.arch.unipi.it/">Mappa: Metodologie applicate alla predittività del potenziale archeologico</a> </li></ul>
@@ -207,7 +207,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2011/12/pleiades-flickr-and-ancient-world-image/" rel="bookmark"><time class="published dt-published" datetime="2011-12-20T15:42:00-06:00" title="2011-12-20 15:42">2011-12-20 15:42</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>Many of you are already aware that <a href="http://pleiades.stoa.org/">Pleiades</a>, <a href="http://flickr.com/">Flickr</a>, and the <a href="http://isaw.nyu.edu/awib/">Ancient World Image Bank</a> have joined forces to link together online, open-access imagery and ancient geographical information. This blog post is intended to answer some lingering questions that users and potential contributors have been asking about the process.<br><br><b>Other Blog Posts</b><br></p>
 <ul>
 <li>
@@ -269,7 +269,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2011/11/updates-to-maia-and-electra-atlantis/" rel="bookmark"><time class="published dt-published" datetime="2011-11-15T16:52:00-06:00" title="2011-11-15 16:52">2011-11-15 16:52</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>The following blog has been added to both the Electra and Maia feed aggregators:<br><br></p>
 <ul><li><a href="http://furman-classics.blogspot.com/">Classics at Furman (Christopher Blackwell)</a></li></ul>
 <div>The following blogs have been removed:</div>

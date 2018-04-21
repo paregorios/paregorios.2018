@@ -5,7 +5,7 @@
 .. tags: cfp, climate, ancient history
 .. category: 
 .. link: 
-.. description: 
+.. description: Reposting a call for papers for a conference sponsored by Sabine Huebner.
 .. type: text
 -->
 
@@ -14,6 +14,8 @@
 Today I noticed [Sabine Huebner's](https://altegeschichte.philhist.unibas.ch/de/personen/sabine-huebner/) post to several lists with a call for papers for the following conference. Since only a PDF version of same is available via the website of [The Basel Climate Science and Ancient History Lab](https://altegeschichte.philhist.unibas.ch/de/forschung/forschungsprojekte/climate-science/), I thought I'd reproduce it in a more web-friendly format here. 
 
 Please direct any comments or questions to Professor Huebner at sabine.huebner@unibas.ch.
+
+<!-- TEASER_END -->
 
 ## Call for Papers
  

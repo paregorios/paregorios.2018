@@ -83,7 +83,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/08/miko-flohr-added-to-maia-and-electra/" rel="bookmark"><time class="published dt-published" datetime="2013-08-22T18:04:00-05:00" title="2013-08-22 18:04">2013-08-22 18:04</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I've just added the <a href="http://www.mikoflohr.nl/home/rss/">feed</a> for <a href="http://www.mikoflohr.nl/home/">Miko Flohr's home page</a> to the <i><a href="http://planet.atlantides.org/maia/">Maia</a></i> and <i><a href="http://planet.atlantides.org/electra/">Electra</a></i> feed aggregators.</p>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/08/get-list-of-machine-tags-from-flickr-api/" class="u-url">Get a List of Machine Tags from the Flickr API</a></h1>
@@ -93,7 +93,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/08/get-list-of-machine-tags-from-flickr-api/" rel="bookmark"><time class="published dt-published" datetime="2013-08-21T19:41:00-05:00" title="2013-08-21 19:41">2013-08-21 19:41</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I want to know what <a href="http://horothesia.blogspot.com/2011/09/feeds-of-flickr-photos-depicting.html">Pleiades machine tags</a> are in use on photos throughout Flickr (<a href="http://code.flickr.net/2011/12/16/pleiades-a-guest-post/">more background here</a>). I thought I'd learn how to ask for that information from the <a href="http://www.flickr.com/services/api/">Flickr API</a> via a script. I requested and got an API key (see <a href="http://www.flickr.com/help/api/">http://www.flickr.com/help/api/</a>). I set up a <a href="https://pypi.python.org/pypi/virtualenv">Python virtual environment</a> and <a href="http://git-scm.com/">git</a> repository for the project. I went looking for Python code that already implemented interaction with the API and settled (somewhat arbitrarily) on <a href="http://stuvel.eu/flickrapi">Beej's Python Flickr API kit </a>(now maintained by Sybren Stüvel). Then used <span style="background-color: #cccccc; font-family: Courier New, Courier, monospace; font-size: x-small;"><a href="https://pypi.python.org/pypi/pip">pip</a> install flickrapi</span> to get the package.<br><br>Here's a command-line session running the script and showing its output:<br><br></p>
 <pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>(pleiades-flickr)darkstar:pleiades-flickr paregorios$ python src/listptags.py <br>pleiades:atteststo is used on 15 photos in Flickr<br>pleiades:denotes is used on 1 photos in Flickr<br>pleiades:depcits is used on 2 photos in Flickr<br>pleiades:depicts is used on 7229 photos in Flickr<br>pleiades:findspot is used on 2197 photos in Flickr<br>pleiades:finspot is used on 2 photos in Flickr<br>pleiades:foundat is used on 1 photos in Flickr<br>pleiades:observedat is used on 3 photos in Flickr<br>pleiades:origin is used on 225 photos in Flickr<br>pleiades:place is used on 970 photos in Flickr<br>pleiades:places is used on 19 photos in Flickr<br>pleiades:where is used on 119 photos in Flickr<br>(pleiades-flickr)darkstar:pleiades-flickr paregorios$ <br><br></code></pre>
 <br>Here's the code (<a href="https://github.com/paregorios/flickrexp/blob/aff7931b5816d70250841335ba24f9ba8b6fb970/listptags.py">version at github</a>):<br><br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>#!/usr/bin/env python<br>"""<br>A Flickr tag bot<br>"""<br><br>import argparse<br>import flickrapi<br>import json<br>import logging as l<br>import os<br>import sys<br>import traceback<br><br>from myflickr import API_KEY, NAMESPACE_DEFAULT<br><br>SCRIPT_DESC = "poll machine tags from flickr"<br><br>def main ():<br>    """ Unleash the bot! """<br><br>    global args<br>    global l<br><br>    flickr = flickrapi.FlickrAPI(API_KEY)<br>    resp = flickr.machinetags_getPairs(namespace=args.namespace, format="json")<br>    if resp[:14] == "jsonFlickrApi(":<br>        jstr = resp[14:-1]<br>        j = json.loads(jstr)<br>        ptags = [(p['_content'], p['usage']) for p in j['pairs']['pair']]<br>        for ptag in ptags:<br>            print "%s is used on %s photos in Flickr" % ptag<br><br><br>if __name__ == "__main__":<br>    try:<br>        parser = argparse.ArgumentParser(description=SCRIPT_DESC, formatter_class=argparse.ArgumentDefaultsHelpFormatter)<br>        parser.add_argument ("-n", "--namespace", default=NAMESPACE_DEFAULT, help="namespace to use in requesting machine tags")<br>        parser.add_argument ("-v", "--verbose", action="store_true", default=False, help="verbose output")<br>        args = parser.parse_args()<br>        if args.verbose:<br>            l.basicConfig(level=l.DEBUG)<br>        else:<br>            l.basicConfig(level=l.WARNING)<br>        main()<br>        sys.exit(0)<br>    except KeyboardInterrupt, e: # Ctrl-C<br>        raise e<br>    except SystemExit, e: # sys.exit()<br>        raise e<br>    except Exception, e:<br>        print "ERROR, UNEXPECTED EXCEPTION"<br>        print str(e)<br>        traceback.print_exc()<br>        os._exit(1)<br><br></code></pre>
@@ -106,7 +106,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/08/new-in-electra-atlantis/" rel="bookmark"><time class="published dt-published" datetime="2013-08-20T15:24:00-05:00" title="2013-08-20 15:24">2013-08-20 15:24</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I've just added the following blogs to the <a href="http://planet.atlantides.org/electra/"><i>Electra Atlantis</i> feed aggregator</a>:<br><br></p>
 <ul>
 <li><i><a href="http://www.digitalhistorians.org/">Digital Historians</a></i></li>
@@ -123,7 +123,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/08/new-in-maia-and-electra/" rel="bookmark"><time class="published dt-published" datetime="2013-08-02T16:25:00-05:00" title="2013-08-02 16:25">2013-08-02 16:25</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I've just added John Muccigrosso's <a href="http://vicusmartis.blogspot.com/">Vicus Martis Tudertium</a> to <a href="http://planet.atlantides.org/maia/"><i>Maia</i></a> and <i><a href="http://planet.atlantides.org/electra">Electra</a></i>, and Robert Consoli's <i><a href="http://preldes-deficiencies.blogspot.com/">P_Redesign_Deficiencies</a></i> to <i>Electra</i>.</p>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2013/07/new-in-maia-and-electra/" class="u-url">New in Maia and Electra</a></h1>
@@ -133,7 +133,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/07/new-in-maia-and-electra/" rel="bookmark"><time class="published dt-published" datetime="2013-07-19T21:21:00-05:00" title="2013-07-19 21:21">2013-07-19 21:21</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>The following blogs have been added to both the <a href="http://planet.atlantides.org/maia/"><i>Maia</i></a> and <i><a href="http://planet.atlantides.org/electra/">Electra</a> Atlantides</i> feed aggregators:<br><br></p>
 <ul>
 <li><i><a href="http://avkatinformatics.wordpress.com/">Avkat Informatics</a></i></li>
@@ -148,7 +148,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/07/new-in-maia_17/" rel="bookmark"><time class="published dt-published" datetime="2013-07-17T16:49:00-05:00" title="2013-07-17 16:49">2013-07-17 16:49</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I've just added the following blogs to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis feed aggregator</a>:<br><br></p>
 <ul>
 <li>James Hamrick's <i><a href="http://ancientbookshelf.blogspot.com/">The Ancient Bookshelf</a></i>
@@ -164,7 +164,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/07/more-new-in-maia/" rel="bookmark"><time class="published dt-published" datetime="2013-07-01T22:40:00-05:00" title="2013-07-01 22:40">2013-07-01 22:40</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>Hat-tip to <a href="http://rogueclassicism.com/">David Meadows</a> for alerting me to these, all of which are now added to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis Feed Aggregator</a>:<br><br><br></p>
 <ul>
 <li>Rob Cain (<i><a href="http://www.ancientromerefocused.org/">Ancient Rome Refocused</a></i>)</li>
@@ -182,7 +182,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/07/new-in-maia/" rel="bookmark"><time class="published dt-published" datetime="2013-07-01T18:02:00-05:00" title="2013-07-01 18:02">2013-07-01 18:02</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I've just added the following blogs to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis feed aggregator</a>:<br><br></p>
 <ul>
 <li>Roberta Mazza's <i><a href="http://facesandvoices.wordpress.com/">Faces &amp; Voices</a></i>
@@ -200,7 +200,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/06/more-new-content-in-planet-atlantides/" rel="bookmark"><time class="published dt-published" datetime="2013-06-21T22:49:00-05:00" title="2013-06-21 22:49">2013-06-21 22:49</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I just added the following blogs to the indicated feed aggregators in the <a href="http://planet.atlantides.org/">Planet Atlantides</a> constellation:<br><br></p>
 <ul>
 <li>
@@ -219,7 +219,7 @@
             </span></p>
             <p class="dateline"><a href="posts/2013/06/new-in-planet-atlantides_21/" rel="bookmark"><time class="published dt-published" datetime="2013-06-21T17:14:00-05:00" title="2013-06-21 17:14">2013-06-21 17:14</time></a></p>
         </div>
-    </header><div class="e-content entry-content">
+    </header><div class="p-summary entry-summary">
     <p>I have just added the following resources to the indicated blog aggregators in the <i><a href="http://planet.atlantides.org/">Planet Atlantides</a></i> constellation:<br><br></p>
 <ul>
 <li>
