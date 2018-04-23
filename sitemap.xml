@@ -63,11 +63,11 @@
  </url>
  <url>
   <loc>https://paregorios.org/archive.html</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/</loc>
-  <lastmod>2018-04-21T15:26:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/3d/</loc>
@@ -332,6 +332,10 @@
  <url>
   <loc>https://paregorios.org/categories/htaccess/</loc>
   <lastmod>2018-04-08T19:54:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/categories/hubzilla/</loc>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/images/</loc>
@@ -791,7 +795,7 @@
  </url>
  <url>
   <loc>https://paregorios.org/index-42.html</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/index-5.html</loc>
@@ -2516,6 +2520,10 @@
  <url>
   <loc>https://paregorios.org/posts/2018/04/ancient-climate-cfp/</loc>
   <lastmod>2018-04-12T19:28:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/posts/2018/04/fediverse-macgirven/</loc>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/posts/2018/04/fediverse/</loc>

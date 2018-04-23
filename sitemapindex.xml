@@ -215,7 +215,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/fediverse.xml</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/feeds.xml</loc>
@@ -268,6 +268,10 @@
  <sitemap>
   <loc>https://paregorios.org/categories/htaccess.xml</loc>
   <lastmod>2018-04-21T15:51:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://paregorios.org/categories/hubzilla.xml</loc>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/images.xml</loc>
@@ -343,7 +347,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/mastodon.xml</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/memes.xml</loc>
@@ -355,7 +359,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/microblogging.xml</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/mob-epigraphy.xml</loc>
@@ -491,7 +495,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/social-networks.xml</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/sparql.xml</loc>
@@ -583,10 +587,10 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/rss.xml</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/sitemap.xml</loc>
-  <lastmod>2018-04-22T17:11:00Z</lastmod>
+  <lastmod>2018-04-23T13:52:00Z</lastmod>
  </sitemap>
 </sitemapindex>
