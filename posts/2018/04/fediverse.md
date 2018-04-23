@@ -102,6 +102,8 @@ As to technology, I've seen people recommend the following tools:
 
 Now, I'd suggest that if you haven't yet read the blog posts cited above [from Ruth Tillman](http://ruthtillman.com/mastodon-overview/) and [from Seth Kenlon](https://opensource.com/article/17/4/guide-to-mastodon), now would be good time. Reading both of them will give you a broader introduction than I've tried to lay out here.
 
+<span style="color:red">Updated 23 April 2018</span>: it looks like there will be follow-on posts to this one. I just published one on criticisms of _ActivityPub_ that also has some links to some more interesting writing on the fediverse, writ large. The best way to keep up with any subsequent posts to this one is probably through [the fediverse tag](/categories/fediverse/).
+
 
 
 
