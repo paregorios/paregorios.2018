@@ -2,6 +2,7 @@
 .. title: Heterarchy: Decentralization and Federation in Social Networking
 .. slug: fediverse
 .. date: 2018-04-21 11:50:41 UTC-04:00
+.. updated: 2018-04-23 04:45:00 UTC-05:00
 .. tags: fediverse, mastodon, social networks, microblogging
 .. category: 
 .. link: 
@@ -86,9 +87,13 @@ Most instances I've seen suggest you offer a self-introduction (using the #intro
 
 Here's [my initial introduction](https://social.coop/@paregorios/99644416200468402) and [a follow-up introduction](https://social.coop/@paregorios/99836014294446671) I made after watching what other people were doing in that regard. I'm not sure whether either of them is all that great, so you might lurk for a few days and watch how others on your instance behave. You can look for more by searching for the hashtag #introductions. Don't be surprised if someone on your instance (admin or otherwise) initiates contact to welcome you and encourage an #introductions post.
 
-## Crossposting
+## Crossposting (<span style="color: red">updated 23 April 2018</span>)
 
-Some people like to cross-post from birdsite to their Mastodon instance (or vice versa). I haven't tried myself, but I've seen people recommend:
+I've seen some people set up cross-posting from birdsite to their Mastodon instance (or vice versa), but [Stefano Costa pointed out to me](https://octodon.social/@steko/99905269629290006) that witter-to-Mastodon autoposting is not necessarily well accepted in the fediverse. [Benjamin Carlisle reinforced that point, saying](https://scholar.social/@bgcarlisle/99905312826543963):
+
+> You might need to check your instance's policies re: autoposting. For example, on Scholar Social, repeaters of RSS feeds or Twitter accounts are allowed, but they must be set to post as Unlisted, not Public
+
+As to technology, I've seen people recommend the following tools:
 
  - [t2m](https://github.com/YoloSwagTeam/t2m)
  - [Mastodon Twitter Crossposter](https://crossposter.masto.donte.com.br/)
