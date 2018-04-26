@@ -1,0 +1,13 @@
+article.postpage div.entry-content img {
+    margin: 1em;
+    margin-left: 3em;
+    padding: 4px;
+    border: 1px solid #AAA;
+    max-width: 50vw;
+    max-height: 50vh;
+}
+
+img.right-wrap {
+    float: right;
+    margin-left: 2em;
+}
