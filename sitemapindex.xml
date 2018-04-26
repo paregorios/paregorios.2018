@@ -215,7 +215,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/fediverse.xml</loc>
-  <lastmod>2018-04-25T16:08:00Z</lastmod>
+  <lastmod>2018-04-25T16:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/feeds.xml</loc>
@@ -268,6 +268,10 @@
  <sitemap>
   <loc>https://paregorios.org/categories/htaccess.xml</loc>
   <lastmod>2018-04-21T15:51:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://paregorios.org/categories/html.xml</loc>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/hubzilla.xml</loc>
@@ -347,7 +351,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/mastodon.xml</loc>
-  <lastmod>2018-04-25T16:08:00Z</lastmod>
+  <lastmod>2018-04-25T16:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/memes.xml</loc>
@@ -358,8 +362,12 @@
   <lastmod>2018-04-21T15:51:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://paregorios.org/categories/metadata.xml</loc>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://paregorios.org/categories/microblogging.xml</loc>
-  <lastmod>2018-04-25T16:08:00Z</lastmod>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/mob-epigraphy.xml</loc>
@@ -380,6 +388,10 @@
  <sitemap>
   <loc>https://paregorios.org/categories/neogeography.xml</loc>
   <lastmod>2018-04-21T15:51:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://paregorios.org/categories/nikola.xml</loc>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/nlp.xml</loc>
@@ -495,7 +507,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/social-networks.xml</loc>
-  <lastmod>2018-04-25T16:08:00Z</lastmod>
+  <lastmod>2018-04-25T16:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/sparql.xml</loc>
@@ -562,6 +574,10 @@
   <lastmod>2018-04-21T15:51:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://paregorios.org/categories/wordpress.xml</loc>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://paregorios.org/categories/xml.xml</loc>
   <lastmod>2018-04-21T15:51:00Z</lastmod>
  </sitemap>
@@ -575,22 +591,22 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/zotero.xml</loc>
-  <lastmod>2018-04-21T15:51:00Z</lastmod>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/galleries/moontown_mornings/rss.xml</loc>
-  <lastmod>2018-04-15T11:29:00Z</lastmod>
+  <lastmod>2018-04-26T18:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/galleries/rss.xml</loc>
-  <lastmod>2018-04-15T11:29:00Z</lastmod>
+  <lastmod>2018-04-26T18:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/rss.xml</loc>
-  <lastmod>2018-04-25T16:08:00Z</lastmod>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/sitemap.xml</loc>
-  <lastmod>2018-04-25T16:09:00Z</lastmod>
+  <lastmod>2018-04-26T20:20:00Z</lastmod>
  </sitemap>
 </sitemapindex>
