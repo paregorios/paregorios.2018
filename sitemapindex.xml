@@ -215,7 +215,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/fediverse.xml</loc>
-  <lastmod>2018-04-25T16:09:00Z</lastmod>
+  <lastmod>2018-04-26T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/feeds.xml</loc>
@@ -275,7 +275,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/hubzilla.xml</loc>
-  <lastmod>2018-04-23T13:56:00Z</lastmod>
+  <lastmod>2018-04-26T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/images.xml</loc>
@@ -308,10 +308,6 @@
  <sitemap>
   <loc>https://paregorios.org/categories/issn.xml</loc>
   <lastmod>2018-04-21T15:51:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://paregorios.org/categories/javascript.xml</loc>
-  <lastmod>2018-04-26T21:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/jobs.xml</loc>
@@ -355,7 +351,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/mastodon.xml</loc>
-  <lastmod>2018-04-25T16:09:00Z</lastmod>
+  <lastmod>2018-04-26T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/memes.xml</loc>
@@ -371,7 +367,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/microblogging.xml</loc>
-  <lastmod>2018-04-26T21:58:00Z</lastmod>
+  <lastmod>2018-04-26T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/mob-epigraphy.xml</loc>
@@ -458,10 +454,6 @@
   <lastmod>2018-04-21T15:51:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://paregorios.org/categories/prism.xml</loc>
-  <lastmod>2018-04-26T21:52:00Z</lastmod>
- </sitemap>
- <sitemap>
   <loc>https://paregorios.org/categories/privacy.xml</loc>
   <lastmod>2018-04-21T15:51:00Z</lastmod>
  </sitemap>
@@ -515,7 +507,7 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/social-networks.xml</loc>
-  <lastmod>2018-04-25T16:09:00Z</lastmod>
+  <lastmod>2018-04-26T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/categories/sparql.xml</loc>
@@ -611,10 +603,10 @@
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/rss.xml</loc>
-  <lastmod>2018-04-26T21:58:00Z</lastmod>
+  <lastmod>2018-04-26T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://paregorios.org/sitemap.xml</loc>
-  <lastmod>2018-04-26T21:58:00Z</lastmod>
+  <lastmod>2018-04-26T23:19:00Z</lastmod>
  </sitemap>
 </sitemapindex>
