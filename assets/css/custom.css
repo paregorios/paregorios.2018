@@ -11,3 +11,28 @@ img.right-wrap {
     float: right;
     margin-left: 2em;
 }
+
+article.postpage div.entry-content div.translation {
+    margin: 1em;
+    margin-left: 3em;
+    margin-right: 3em;
+    padding: 10px;
+    border: 1px solid #AAA;
+}
+
+:not(:lang(en)) {
+    font-style: italic
+}
+
+:lang(en) {
+    font-style: normal;
+}
+
+.bibreference .lang {
+    font-style: normal;
+}
+
+.bibtitle {
+    font-style: italic;
+}
+
