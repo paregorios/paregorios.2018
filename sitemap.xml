@@ -63,11 +63,11 @@
  </url>
  <url>
   <loc>https://paregorios.org/archive.html</loc>
-  <lastmod>2018-04-26T21:58:00Z</lastmod>
+  <lastmod>2018-04-27T10:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/</loc>
-  <lastmod>2018-04-26T23:05:00Z</lastmod>
+  <lastmod>2018-04-27T10:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/3d/</loc>
@@ -374,6 +374,10 @@
   <lastmod>2018-04-06T22:06:00Z</lastmod>
  </url>
  <url>
+  <loc>https://paregorios.org/categories/javascript/</loc>
+  <lastmod>2018-04-27T10:37:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://paregorios.org/categories/jobs/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
  </url>
@@ -516,6 +520,10 @@
  <url>
   <loc>https://paregorios.org/categories/potamos/</loc>
   <lastmod>2018-04-06T22:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/categories/prism/</loc>
+  <lastmod>2018-04-27T10:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/privacy/</loc>
@@ -815,7 +823,7 @@
  </url>
  <url>
   <loc>https://paregorios.org/index-43.html</loc>
-  <lastmod>2018-04-26T21:58:00Z</lastmod>
+  <lastmod>2018-04-27T10:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/index-5.html</loc>
@@ -2572,6 +2580,10 @@
  <url>
   <loc>https://paregorios.org/posts/2018/04/strip-geo-images/</loc>
   <lastmod>2018-04-12T13:21:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/posts/2018/04/what-zotero-wants/</loc>
+  <lastmod>2018-04-27T10:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/python-on-osx/</loc>

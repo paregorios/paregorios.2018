@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Digging into Zotero translator code for embedded metadata to figure out what makes it decide something is a blog post.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Zotero Wants From My Blog | paregorios.org</title>
+<link href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/html4css1.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/nikola_rst.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/custom.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://paregorios.org/posts/2018/04/what-zotero-wants/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tom Elliott">
+<link rel="prev" href="../blogs-work-zotero/" title="Blogs that work with Zotero" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="What Zotero Wants From My Blog">
+<meta property="og:url" content="https://paregorios.org/posts/2018/04/what-zotero-wants/">
+<meta property="og:description" content="Digging into Zotero translator code for embedded metadata to figure out what makes it decide something is a blog post.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-04-27T05:33:37-05:00">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="metadata">
+<meta property="article:tag" content="microblogging">
+<meta property="article:tag" content="nikola">
+<meta property="article:tag" content="prism">
+<meta property="article:tag" content="rdf">
+<meta property="article:tag" content="wordpress">
+<meta property="article:tag" content="zotero">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://paregorios.org/">
+
+                <span id="blog-title">paregorios.org</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../about/">About</a>
+                </li>
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../resources/">Resources</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.md" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">What Zotero Wants From My Blog</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2018-04-27T05:33:37-05:00" itemprop="datePublished" title="2018-04-27 05:33">2018-04-27 05:33</time></a></p>
+            
+        <p class="sourceline"><a href="index.md" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>So, I'm on a quest to get my blog to play well with <a href="https://zotero.org"><em>Zotero</em></a>. Today I come to grips with the translator code that <em>Zotero</em> uses to create a record from a blog entry.<!-- TEASER_END --></p>
+<p><a href="../blogs-work-zotero/">In the first report from the field</a>, I did some comparative metadata investigations to see why some (<a href="https://wordpress.org/"><em>WordPress</em></a>) blogs worked well with the <em>Zotero</em> browser plugin, but mine (built with the <a href="https://getnikola.com"><em>Nikola</em> static site generator</a>) didn't. There was nothing super-obvious in the <abbr title="HyperText Markup Language">HTML</abbr> metadata, but I was suspicious that the mere fact of being <em>WordPress</em> or not might have something to do with it.</p>
+<p><a href="https://github.com/zotero/translators">The <em>Zotero</em> developer community puts its translator code on <em>GitHub</em> in a public repository</a>, so we can look at it directly. There are multiple translators, some keyed to particular domains. The one that's getting used for both my blog and the ones I'm comparing calls itself (in the <em>Zotero</em> interface) "Embedded Metadata." A bit of filename skimming leads us to <a href="https://github.com/zotero/translators/blob/master/Embedded%20Metadata.js">a likely JavaScript source file named "Embedded Metadata.js"</a>. Searching in page for the string "blog," we discover quickly that our guess about <a href="https://github.com/zotero/translators/blob/beb41ffeb07290e8937a0b99d313a868783487ab/Embedded%20Metadata.js#L272">special handling for <em>WordPress</em></a> is probably right:</p>
+<pre class="code literal-block"><span></span>      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">tag</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'generator'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">lcValue</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">lcValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'blogger'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+          <span class="o">||</span> <span class="nx">lcValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'wordpress'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+          <span class="o">||</span> <span class="nx">lcValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'wooframework'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="p">)</span> <span class="p">{</span>
+          <span class="nx">generatorType</span> <span class="o">=</span> <span class="s1">'blogPost'</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>I'm not fluent in <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, but searching around for how <code>generatorType</code> seems to get used elsewhere (it only appears in this file), it's pretty clear that, in the absence of any other indicia, <em>Zotero</em> will always interpret an HTML page that claims to have been generated by <em>WordPress</em> as a blog post:</p>
+<pre class="code literal-block"><span></span>      <span class="nx">rdf</span><span class="p">.</span><span class="nx">defaultUnknownType</span> <span class="o">=</span> <span class="nx">hwType</span> <span class="o">||</span> <span class="nx">hwTypeGuess</span> <span class="o">||</span> <span class="nx">generatorType</span> <span class="o">||</span> 
+        <span class="p">(</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span> <span class="o">?</span> <span class="s2">"webpage"</span><span class="o">:</span><span class="kc">false</span><span class="p">);</span>
+</pre>
+
+
+<p>Indeed, in <a href="http://ruthtillman.com/blog/">the WordPress blog we were examining previously (ruthtillman.com)</a>, posts include a <code>&lt;meta&gt;</code> element in the HTML header that identifies the creating application:</p>
+<pre class="code literal-block"><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"generator"</span> <span class="na">content</span><span class="o">=</span><span class="s">"WordPress 4.9.5"</span> <span class="p">/&gt;</span>
+</pre>
+
+
+<p>The <em>Nikola</em> theme I'm using also writes a generator tag for my blog posts, but as <em>Nikola</em> can be used to create non-blog sites, it's not appropriate for the <em>Zotero</em> translator to force the item type in this way.</p>
+<h3>Now what?</h3>
+<p>Well, given that the variable name <code>rdf.defaultUnknownType</code> contains the word "default," presumably there are other ways in which the <code>itemType</code> can be determined. In fact, just a few lines down, we find the promising invocation of a JavaScript function named <code>rdf.detectType</code>:</p>
+<pre class="code literal-block"><span></span>  <span class="nx">_itemType</span> <span class="o">=</span> <span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span> <span class="o">?</span> <span class="nx">rdf</span><span class="p">.</span><span class="nx">detectType</span><span class="p">({},</span><span class="nx">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">],{})</span> <span class="o">:</span> <span class="nx">rdf</span><span class="p">.</span><span class="nx">defaultUnknownType</span><span class="p">;</span>
+</pre>
+
+
+<p>More searching leads us to another source file in the same repository, <a href="https://github.com/zotero/translators/blob/beb41ffeb07290e8937a0b99d313a868783487ab/RDF.js#L263">RDF.js. wherein the function <code>detectType</code> is defined</a>. <a href="https://github.com/zotero/translators/blob/beb41ffeb07290e8937a0b99d313a868783487ab/RDF.js#L722">At the very bottom of this function</a>, we see that the value of an internal variable named <code>itemType</code> is returned by the function. We need to find out how it gets set to "blogPost". Reading backward from this point, we quickly come across a big assignment:</p>
+<pre class="code literal-block"><span></span>  <span class="kd">var</span> <span class="nx">itemType</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">zotero</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">bib</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">prism</span> <span class="o">||</span><span class="nx">t</span><span class="p">.</span><span class="nx">eprints</span><span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">og</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">dc</span> <span class="o">||</span> 
+    <span class="nx">exports</span><span class="p">.</span><span class="nx">defaultUnknownType</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">zoteroGuess</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">bibGuess</span> <span class="o">||</span> 
+    <span class="nx">t</span><span class="p">.</span><span class="nx">prismGuess</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">ogGuess</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">dcGuess</span> <span class="p">;</span>
+</pre>
+
+
+<p>There must be code further above that line that sets one or more of the variables on the right-hand side of the assignment to "blogPost". I don't want to read this whole function, so let's search for the string "blogPost". <a href="https://github.com/zotero/translators/blob/beb41ffeb07290e8937a0b99d313a868783487ab/RDF.js#L633">There it is</a>:</p>
+<pre class="code literal-block"><span></span>  <span class="c1">//PRISM:genre</span>
+  <span class="nx">type</span> <span class="o">=</span> <span class="nx">getFirstResults</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="p">[</span><span class="nx">n</span><span class="p">.</span><span class="nx">prism</span><span class="o">+</span><span class="s2">"genre"</span><span class="p">,</span> <span class="nx">n</span><span class="p">.</span><span class="nx">prism2_0</span><span class="o">+</span><span class="s2">"genre"</span><span class="p">,</span>
+    <span class="nx">n</span><span class="p">.</span><span class="nx">prism2_1</span><span class="o">+</span><span class="s2">"genre"</span><span class="p">]);</span>
+  <span class="k">switch</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">'abstract'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'acknowledgements'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'authorbio'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'bibliography'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'index'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'tableofcontents'</span><span class="o">:</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prism</span> <span class="o">=</span> <span class="s1">'bookSection'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'autobiography'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'biography'</span><span class="o">:</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prism</span> <span class="o">=</span> <span class="s1">'book'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'blogentry'</span><span class="o">:</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prism</span> <span class="o">=</span> <span class="s1">'blogPost'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'homepage'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'webliography'</span><span class="o">:</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prism</span> <span class="o">=</span> <span class="s1">'webpage'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'interview'</span><span class="o">:</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prism</span> <span class="o">=</span> <span class="s1">'interview'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'letters'</span><span class="o">:</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prism</span> <span class="o">=</span> <span class="s1">'letter'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'adaptation'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'analysis'</span><span class="o">:</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prismGuess</span> <span class="o">=</span> <span class="s1">'journalArticle'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'column'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'newsbulletin'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'opinion'</span><span class="o">:</span>
+      <span class="c1">//magazine or newspaper</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prismGuess</span> <span class="o">=</span> <span class="s1">'newspaperArticle'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'coverstory'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'essay'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'feature'</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">'insidecover'</span><span class="o">:</span>
+      <span class="c1">//journal or magazine</span>
+      <span class="nx">t</span><span class="p">.</span><span class="nx">prismGuess</span> <span class="o">=</span> <span class="s1">'magazineArticle'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+
+<p>My takeaway from this slap-dash bit of code forensics is that we need to figure out how to embed some <abbr title="Resource Description Framework">RDF</abbr> metadata that uses <a href="https://www.idealliance.org/specification/prism">the <abbr title="Publishing Requirements for Industry Standard Metadata">PRISM</abbr> vocabulary</a> to assert that the "genre" of our blog posts is "blogentry."</p>
+<p>Stay tuned to <a href="../../../../categorios/zotero">my <em>Zotero</em> tag</a> for the next dispatch ...</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/html/" rel="tag">html</a></li>
+            <li><a class="tag p-category" href="../../../../categories/javascript/" rel="tag">javascript</a></li>
+            <li><a class="tag p-category" href="../../../../categories/metadata/" rel="tag">metadata</a></li>
+            <li><a class="tag p-category" href="../../../../categories/microblogging/" rel="tag">microblogging</a></li>
+            <li><a class="tag p-category" href="../../../../categories/nikola/" rel="tag">nikola</a></li>
+            <li><a class="tag p-category" href="../../../../categories/prism/" rel="tag">prism</a></li>
+            <li><a class="tag p-category" href="../../../../categories/rdf/" rel="tag">rdf</a></li>
+            <li><a class="tag p-category" href="../../../../categories/wordpress/" rel="tag">wordpress</a></li>
+            <li><a class="tag p-category" href="../../../../categories/zotero/" rel="tag">zotero</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blogs-work-zotero/" rel="prev" title="Blogs that work with Zotero">Previous post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            
+Contents © 2007-2018 by <a href="mailto:ipse@paregorios.org">Tom Elliott</a>.<br><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"></a>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><strong><em>paregorios.org</em></strong></span> by
+<a xmlns:cc="http://creativecommons.org/ns#" href="https://paregorios.org/me" property="cc:attributionName" rel="cc:attributionURL">Tom Elliott</a> is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+Attribution 4.0 International License</a>.
+<br>Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/jquery.min.js"></script><script src="../../../../assets/js/bootstrap.min.js"></script><script src="../../../../assets/js/moment-with-locales.min.js"></script><script src="../../../../assets/js/fancydates.js"></script><script src="../../../../assets/js/jquery.colorbox-min.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
