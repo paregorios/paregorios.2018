@@ -1,7 +1,7 @@
 <!--
 .. title: What Zotero Wants From My Blog
 .. slug: what-zotero-wants
-.. date: 2018-04-27 08:02:37 UTC-05:00
+.. date: 2018-04-27 05:33:37 UTC-05:00
 .. tags: zotero, nikola, wordpress, metadata, html, microblogging, rdf, prism, javascript
 .. category: 
 .. link: 
