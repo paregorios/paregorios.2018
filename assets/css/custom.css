@@ -36,3 +36,7 @@ article.postpage div.entry-content div.translation {
     font-style: italic;
 }
 
+em, :lang(en) em {
+    font-style: italic;
+}
+
