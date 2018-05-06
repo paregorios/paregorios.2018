@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="description" content="Tom Elliott's blog and personal site">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>paregorios.org (old posts, page 30) | paregorios.org</title>
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="assets/css/html4css1.css" rel="stylesheet" type="text/css">
-<link href="assets/css/nikola_rst.css" rel="stylesheet" type="text/css">
+<link href="assets/css/baguetteBox.min.css" rel="stylesheet" type="text/css">
+<link href="assets/css/rst.css" rel="stylesheet" type="text/css">
 <link href="assets/css/code.css" rel="stylesheet" type="text/css">
-<link href="assets/css/colorbox.css" rel="stylesheet" type="text/css">
 <link href="assets/css/theme.css" rel="stylesheet" type="text/css">
 <link href="assets/css/custom.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -25,42 +25,37 @@
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark static-top mb-4"><div class="container">
 <!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://paregorios.org/">
+        <a class="navbar-brand" href="https://paregorios.org/">
 
-                <span id="blog-title">paregorios.org</span>
-            </a>
-        </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" role="navigation" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="about/">About</a>
+            <span id="blog-title">paregorios.org</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="about/" class="nav-link">About</a>
                 </li>
-<li>
-<a href="archive.html">Archive</a>
+<li class="nav-item">
+<a href="archive.html" class="nav-link">Archive</a>
                 </li>
-<li>
-<a href="categories/">Tags</a>
+<li class="nav-item">
+<a href="categories/" class="nav-link">Tags</a>
                 </li>
-<li>
-<a href="resources/">Resources</a>
+<li class="nav-item">
+<a href="resources/" class="nav-link">Resources</a>
                 </li>
-<li>
-<a href="rss.xml">RSS feed</a>
+<li class="nav-item">
+<a href="rss.xml" class="nav-link">RSS feed</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
@@ -68,16 +63,15 @@
 </nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
-        <div class="row">
-            
-            
+        
+        
 
     
 
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-dealing-with/" class="u-url">Playing with PELAGIOS: Dealing with a bazillion RDF files</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-dealing-with/" class="u-url">Playing with PELAGIOS: Dealing with a bazillion RDF files</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -88,7 +82,7 @@
     <i>Latest in a <a href="http://horothesia.blogspot.com/search/label/pelagiosplay">Playing with PELAGIOS series</a></i><br><br>Some of the PELAGIOS partners distribute their annotation RDF in a relatively small number of files. Others (like SPQR and ANS) have a very large number of files. This makes <a href="http://horothesia.blogspot.com/2012/02/playing-with-pelagios-nomisma.html">the technique I used earlier</a> for adding triples to the database ungainly. Fortunately,<a href="http://4store.org/trac/wiki/ImportData"> 4store provides some command line methods for loading triples</a>.<br><br>First, stop the 4store http server (<a href="http://4store.org/trac/wiki/SparqlServer#ShuttingDown">why?</a>):<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ killall 4s-httpd<br></code></pre>Try to import all the RDF files.  Rats!<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ 4s-import -a pelagios *.rdf<br>-bash: /Applications/4store.app/Contents/MacOS/bin/4s-import: Argument list too long<br></code></pre>
 <a href="http://www.gnu.org/software/bash/">Bash</a> to the rescue (but note that doing <a href="http://4store.org/trac/wiki/ImportData#Multiplefiles">one file at a time has a cost</a> on the 4store side):<br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>$ for f in *.rdf; do 4s-import -av pelagios $f; done<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.00000.rdf&gt;<br>Pass 1, processed 10 triples (10)<br>Pass 2, processed 10 triples, 8912 triples/s<br>Updating index<br>Index update took 0.000890 seconds<br>Imported 10 triples, average 4266 triples/s<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.101.rdf&gt;<br>Pass 1, processed 11 triples (11)<br>Pass 2, processed 11 triples, 9856 triples/s<br>Updating index<br>Index update took 0.000936 seconds<br>Imported 11 triples, average 4493 triples/s<br>Reading &lt;file:///Users/paregorios/Documents/files/P/pelagios-data/coins/0000.999.10176.rdf&gt;<br>Pass 1, processed 8 triples (8)<br>Pass 2, processed 8 triples, 6600 triples/s<br>Updating index<br>Index update took 0.000892 seconds<br>Imported 8 triples, average 3256 triples/s<br>... <br></code></pre>This took a while. There are 86,200 files in the ANS annotation batch.<br><br>Note the use of the -a option on 4s-import to ensure the triples are added to the current contents of the database, rather than replacing them! Note also the -v option, which is what gives you the report (otherwise, it's silent and that makes my ctrl-c finger twitchy).<br><br>Now, back to the SPARQL mines.
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-arachne-was-easy/" class="u-url">Playing with PELAGIOS: Arachne was easy after nomisma</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-arachne-was-easy/" class="u-url">Playing with PELAGIOS: Arachne was easy after nomisma</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -108,7 +102,7 @@
 </li>
 </ul>
 </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-nomisma/" class="u-url">Playing with PELAGIOS: Nomisma</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-nomisma/" class="u-url">Playing with PELAGIOS: Nomisma</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -133,7 +127,7 @@
 <div><br></div>
 <div><br></div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/new-on-electra-tapas-news/" class="u-url">New on Electra: TAPAS News</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/01/new-on-electra-tapas-news/" class="u-url">New on Electra: TAPAS News</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -143,7 +137,7 @@
     </header><div class="p-summary entry-summary">
     <p>This morning I've added the <a href="http://tapasproject.org/news">News feed</a> from the <a href="http://tapasproject.org/">TEI Archiving, Publishing and Access Service (TAPAS) Project website</a> to the <a href="http://planet.atlantides.org/electra/">Electra Atlantis Feed Aggregator</a>.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/new-on-maia-aia-fieldnotes/" class="u-url">New on Maia: AIA Fieldnotes</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/01/new-on-maia-aia-fieldnotes/" class="u-url">New on Maia: AIA Fieldnotes</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -153,7 +147,7 @@
     </header><div class="p-summary entry-summary">
     <p>I've just added the feed for the <a href="http://www.archaeological.org/fieldnotes/">Fieldnotes section on the website of the Archaeological Institute of America</a> to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis Feed Aggregator</a>. Hat-tip to <a href="http://isaw.nyu.edu/people/staff/chuck-jones">Chuck Jones</a> for the notice.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/horothesia-to-go-dark-18-january-2012/" class="u-url">Horothesia to go dark 18 January 2012</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/01/horothesia-to-go-dark-18-january-2012/" class="u-url">Horothesia to go dark 18 January 2012</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -163,7 +157,7 @@
     </header><div class="p-summary entry-summary">
     <p>Following <a href="http://wikimediafoundation.org/wiki/English_Wikipedia_anti-SOPA_blackout">Wikipedia</a> and others, I will be taking my blog dark tomorrow to protest <a href="http://thomas.loc.gov/cgi-bin/bdquery/z?d112:h.r.3261:">SOPA</a> and <a href="http://thomas.loc.gov/cgi-bin/bdquery/z?d112:s.968:">PIPA</a>.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/additions-to-electra-and-maia/" class="u-url">Additions to Electra and Maia</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/01/additions-to-electra-and-maia/" class="u-url">Additions to Electra and Maia</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -183,7 +177,7 @@
 <a href="http://www.pasthorizonspr.com/">David Connolly, Maggie Struckmeier, and Felicity Donohoe (Past Horizons: Adventures in Archaeology)</a>: maia</li>
 </ul>
 </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/01/changes-to-electra-and-maia-atlantis/" class="u-url">Changes to Electra and Maia Atlantis</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/01/changes-to-electra-and-maia-atlantis/" class="u-url">Changes to Electra and Maia Atlantis</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -201,7 +195,7 @@
 <div>Records for some other blogs were updated to reflect the fact that their feeds had moved to new URLs (with proper forwarding instructions). I pass over these details in silence here.</div>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2011/12/pleiades-flickr-and-ancient-world-image/" class="u-url">Pleiades, Flickr, and the Ancient World Image Bank</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2011/12/pleiades-flickr-and-ancient-world-image/" class="u-url">Pleiades, Flickr, and the Ancient World Image Bank</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -263,7 +257,7 @@
 <div><br></div>
 <div>Please let me know, via comments here, if you have additional questions or suggestions. </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2011/11/updates-to-maia-and-electra-atlantis/" class="u-url">Updates to Maia and Electra Atlantis</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2011/11/updates-to-maia-and-electra-atlantis/" class="u-url">Updates to Maia and Electra Atlantis</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -283,18 +277,11 @@
     </article>
 </div>
 
-        <nav class="postindexpager"><ul class="pager">
-<li class="previous">
-                <a href="index-31.html" rel="prev">Newer posts</a>
-            </li>
-            <li class="next">
-                <a href="index-29.html" rel="next">Older posts</a>
-            </li>
-        </ul></nav>
-</div>
-        <!--End of body content-->
-
-        <footer id="footer">
+        <ul class="pager postindexpager clearfix">
+<li class="previous"><a href="index-31.html" rel="prev">Newer posts</a></li>
+            <li class="next"><a href="index-29.html" rel="next">Older posts</a></li>
+        </ul>
+<!--End of body content--><footer id="footer">
             
 Contents © 2007-2018 by <a href="mailto:ipse@paregorios.org">Tom Elliott</a>.<br><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"></a>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><strong><em>paregorios.org</em></strong></span> by
@@ -308,9 +295,15 @@ Attribution 4.0 International License</a>.
 </div>
 
 
-            <script src="assets/js/jquery.min.js"></script><script src="assets/js/bootstrap.min.js"></script><script src="assets/js/moment-with-locales.min.js"></script><script src="assets/js/fancydates.js"></script><script src="assets/js/jquery.colorbox-min.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="assets/js/jquery.min.js"></script><script src="assets/js/popper.min.js"></script><script src="assets/js/bootstrap.min.js"></script><script src="assets/js/baguetteBox.min.js"></script><script src="assets/js/moment-with-locales.min.js"></script><script src="assets/js/fancydates.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates -->
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
 </body>
 </html>

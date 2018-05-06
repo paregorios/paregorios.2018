@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="description" content="Tom Elliott's blog and personal site">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>paregorios.org (old posts, page 31) | paregorios.org</title>
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="assets/css/html4css1.css" rel="stylesheet" type="text/css">
-<link href="assets/css/nikola_rst.css" rel="stylesheet" type="text/css">
+<link href="assets/css/baguetteBox.min.css" rel="stylesheet" type="text/css">
+<link href="assets/css/rst.css" rel="stylesheet" type="text/css">
 <link href="assets/css/code.css" rel="stylesheet" type="text/css">
-<link href="assets/css/colorbox.css" rel="stylesheet" type="text/css">
 <link href="assets/css/theme.css" rel="stylesheet" type="text/css">
 <link href="assets/css/custom.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -25,42 +25,37 @@
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark static-top mb-4"><div class="container">
 <!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://paregorios.org/">
+        <a class="navbar-brand" href="https://paregorios.org/">
 
-                <span id="blog-title">paregorios.org</span>
-            </a>
-        </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" role="navigation" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="about/">About</a>
+            <span id="blog-title">paregorios.org</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="about/" class="nav-link">About</a>
                 </li>
-<li>
-<a href="archive.html">Archive</a>
+<li class="nav-item">
+<a href="archive.html" class="nav-link">Archive</a>
                 </li>
-<li>
-<a href="categories/">Tags</a>
+<li class="nav-item">
+<a href="categories/" class="nav-link">Tags</a>
                 </li>
-<li>
-<a href="resources/">Resources</a>
+<li class="nav-item">
+<a href="resources/" class="nav-link">Resources</a>
                 </li>
-<li>
-<a href="rss.xml">RSS feed</a>
+<li class="nav-item">
+<a href="rss.xml" class="nav-link">RSS feed</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
@@ -68,16 +63,15 @@
 </nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
-        <div class="row">
-            
-            
+        
+        
 
     
 
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/06/people-from-my-dissertation-in-rdf/" class="u-url">People from my dissertation in RDF</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/06/people-from-my-dissertation-in-rdf/" class="u-url">People from my dissertation in RDF</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -87,7 +81,7 @@
     </header><div class="p-summary entry-summary">
     <p>On the road to <a href="http://horothesia.blogspot.com/search/label/demarc">turning my dissertation into linked data</a> I've minted URIs for, and produced <a href="https://github.com/paregorios/demarc/blob/master/ttl/people.ttl">basic RDF for, all of the historical individuals</a> I dealt with examining boundary disputes internal to the early Roman empire.<br><br>I used <a href="http://xmlns.com/foaf/spec/#term_Person">foaf:Person</a>, <a href="http://xmlns.com/foaf/spec/#term_name">foaf:name</a>, and <a href="http://vocab.org/bio/0.1/olb.html">bio:olb</a> (the latter from the <a href="http://vocab.org/bio/0.1/.html">BIO Vocabulary for Biographical Information</a>, developed by Ian Davis and David Galbraith). The Roman emperors who appear in my list have been aligned to <a href="http://dbpedia.org/About">dbpedia</a> resources using <a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a>. I intend to do more alignments in future to resources like dbpedia and <a href="http://viaf.org/">viaf.org</a>.<br><br>Here's <a href="https://github.com/paregorios/demarc/blob/master/xml/people.xml">the XML I started from</a> (part of an Open Document Text format file I converted from Word), and <a href="https://github.com/paregorios/demarc/blob/master/xsl/people2ttl.xsl">the XSLT I used to produce the Turtle RDF</a>, which was then cleaned up by hand.<br><br>More to come.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/06/how-to-get-born-for-print-bibliography/" class="u-url">How to get a born-for-print bibliography into RDF</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/06/how-to-get-born-for-print-bibliography/" class="u-url">How to get a born-for-print bibliography into RDF</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -115,7 +109,7 @@
 <blockquote><pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; color: #000000; background-color: #eee;font-size: 12px;border: 1px dashed #999999;line-height: 14px;padding: 5px; overflow: auto; width: 100%"><code>$ python tab2n3.py -id -schema -namespace http://purl.org/ontology/bibo/ &lt; BoundaryDisputesJustDataHeadings.csv &gt; BoundaryDisputes.ttl<br></code></pre></blockquote>
 <ul><li>Open the resulting ttl file in the text-editor of your choice. You've got RDF! (<a href="https://github.com/paregorios/bibliography/blob/master/raw/BoundaryDisputes.ttl">see here</a>).</li></ul>
 </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/06/ancient-studies-needs-open/" class="u-url">Ancient Studies Needs Open Bibliographic Data and Associated URIs</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/06/ancient-studies-needs-open/" class="u-url">Ancient Studies Needs Open Bibliographic Data and Associated URIs</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -155,7 +149,7 @@
 <div><br></div>
 <div>Welcome, encouraged, and essential. By comment here or otherwise (but not private email please!).</div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/05/added-mapping-center-notes-to-maia/" class="u-url">Added Mapping Center Notes to Maia Atlantis</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/05/added-mapping-center-notes-to-maia/" class="u-url">Added Mapping Center Notes to Maia Atlantis</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -165,7 +159,7 @@
     </header><div class="p-summary entry-summary">
     <p>This morning I added the RSS feed for <a href="https://www.facebook.com/ancientworldmappingcenter?sk=notes">"Ancient World Mapping Center Notes" (via Facebook)</a> to the <a href="http://planet.atlantides.org/maia/">Maia Atlantis Feed Aggregator</a>.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/05/first-pass-at-extracting-useful-data/" class="u-url">First pass at extracting useful data from my dissertation</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/05/first-pass-at-extracting-useful-data/" class="u-url">First pass at extracting useful data from my dissertation</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -176,7 +170,7 @@
     <i>You'll find context in <a href="http://horothesia.blogspot.com/2012/05/open-access-epigraphic-evidence-for.html">yesterday's post on the dissertation</a>.</i><br><br>It turns out it wasn't as hard as I anticipated to start getting useful information extracted from my born-digital-for-printing-on-dead-trees dissertation. Here's a not-yet-perfect xml serialization (borrowing tags from the TEI) of "instance" information found in the diss narrative:<br><br><a href="https://github.com/paregorios/demarc/blob/master/xml/instances.xml">https://github.com/paregorios/demarc/blob/master/xml/instances.xml</a><br><br>Each instance is a historical event (or in some cases event series) relating to boundary demarcation or dispute within the empire. Here's a comparison between the original formatting for paper and the xml.<br><br>For paper:<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-nu_yP3-852Q/T71bfc35IOI/AAAAAAAAAQE/MTtfTmuT0PQ/s1600/wookie.png" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="390" width="400" src="http://2.bp.blogspot.com/-nu_yP3-852Q/T71bfc35IOI/AAAAAAAAAQE/MTtfTmuT0PQ/s400/wookie.png"></a></div>  <br>XML:<br><pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; color: #000000; background-color: #eee;font-size: 12px;border: 1px dashed #999999;line-height: 14px;padding: 5px; overflow: auto; width: 100%"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>&lt;div type="instance" xml:id="INST9"&gt;<br>  &lt;idno type="original"&gt;INST9&lt;/idno&gt;<br>  &lt;head&gt;A Negotiated Boundary between the &lt;placeName <br>    type="ancient"&gt;Zamucci&lt;/placeName&gt; and the &lt;placeName <br>    type="ancient"&gt;Muduciuvi&lt;/placeName&gt;&lt;/head&gt;<br>  &lt;p rend="indent"&gt;Burton 2000, no. 78&lt;/p&gt;<br>  &lt;p&gt;Date(s): &lt;date&gt;AD 86&lt;/date&gt;&lt;/p&gt;<br>  &lt;p type="treDisputeStatement"&gt;This boundary marker was placed in <br>    accordance with the agreement of both parties (&lt;foreign xml:lang="la"&gt;ex <br>    conven/tione utrarumque nationum&lt;/foreign&gt;), and therefore may be taken as<br>    evidence of a &lt;hi rend="bold"&gt;boundary dispute&lt;/hi&gt;.&lt;/p&gt;<br>  &lt;p rend="indent"&gt;This single boundary marker from coastal &lt;placeName <br>    type="modern"&gt;Libya&lt;/placeName&gt; provides the only evidence for the resolution<br>    of a boundary dispute between these two indigenous peoples. The date of the <br>    demarcation, as calculated from the imperial titulature, places the event in <br>    the same year as the reported ‘destruction’ of the &lt;placeName <br>    type="ancient"&gt;Nasamones&lt;/placeName&gt; by &lt;placeName type="ancient"&gt;Legio III <br>    Augusta&lt;/placeName&gt; as a consequence of a tax revolt in which tax collectors <br>    were killed.&lt;note n="286"&gt; Zonaras 11.19. &lt;/note&gt; It is not clear whether <br>    the boundary action was related to the conflict, or merely took advantage of<br>    the temporary presence of the legionary legate in what ought to have been<br>    part of the proconsular province. Surviving documentation for proconsuls<br>    during the 80s AD is incomplete, and therefore we cannot say who was<br>    governing &lt;placeName type="ancient"&gt;Africa Proconsularis &lt;/placeName&gt;at the <br>    time of this demarcation.&lt;note n="287"&gt; Thomasson 1996, 45-48. &lt;/note&gt;<br>    Neither party seems to have been related to the &lt;placeName <br>    type="ancient"&gt;Nasamones&lt;/placeName&gt;; rather, they are thought to be sub-<br>    tribes of the &lt;placeName type="ancient"&gt;Macae.&lt;/placeName&gt;&lt;note <br>    n="288"&gt;Mattingly 1994, 27-28, 32, 74, 76.. &lt;/note&gt;&lt;/p&gt;<br>&lt;/div&gt;<br><br></code></pre>
 <br><br>One thing that made this a lot easier than it might of been was the way I used styles in Microsoft Word back when I created the original version of the document. Rather than just painting formatting onto my text for headings, paragraphs, strings of characters, and so forth, I created a custom "style" for each type of thing I wanted to paint (e.g., an "instance heading" or a "personal name"). I associated the desired visual formatting with each of these, but the names themselves (since the captured semantic distinctions that I was interested in) provided hooks today for writing this stuff out as sort-of TEI XML.<br><br>There's more to do, obviously, but this was a satisfying first step.
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/05/five-minutes-to-ancient-world-linked/" class="u-url">Five Minutes to Ancient World Linked Data JavaScript</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/05/five-minutes-to-ancient-world-linked/" class="u-url">Five Minutes to Ancient World Linked Data JavaScript</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -197,7 +191,7 @@
 <ul><li>Save and enjoy</li></ul>
 <p><a href="http://isawnyu.github.com/awld-js/">Information about (and code) for the Ancient World Linked Data JavaScript library</a>.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/05/open-access-epigraphic-evidence-for/" class="u-url">Open-Access Epigraphic Evidence for Boundary Disputes in the Roman Empire</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/05/open-access-epigraphic-evidence-for/" class="u-url">Open-Access Epigraphic Evidence for Boundary Disputes in the Roman Empire</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -207,7 +201,7 @@
     </header><div class="p-summary entry-summary">
     <p>I've been sitting on the dissertation way too long. So <a href="https://github.com/paregorios/demarc">here it is, unleashed upon the world</a> under the terms of a Creative Commons Attribution Share-alike license.<br><br>I have visions of hacking it up into a super-cool, linked data, ever-updated information resource, but there's no reason -- even though it's pretty niche in a lot of ways -- why anyone who might benefit from having, using, or critiquing it meantime should have to wait for that to happen.<br><br>Comments, questions, and post-release reviews are welcome via comment here, or via email to tom.elliott@nyu.edu, or on your own blog. And feel free to fork the repos and play around if you're mob-epigraphically inclined.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/02/give-me-zotero-item-keys/" class="u-url">Give Me the Zotero Item Keys!</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/02/give-me-zotero-item-keys/" class="u-url">Give Me the Zotero Item Keys!</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -224,7 +218,7 @@
 <br>The SELECT statement gets me two values for each match dredged up by the rest of the query: a value stored in the itemDataValues table and a key stored in the items table. The various JOINs are used to get us close to the specific value (i.e., a short title) that we want. 116 in the fieldID field of the fields table corresponds to the short title field you see in your Zotero client. I found that out by inspecting the fields table; I could have used more JOINs to be able to use the string "shortTitle" in my WHERE clause, but that would have just taken more time.<br><br>The results of that query against my database looked like this:<br><br><pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>P.Cair.Preis.    2245UKTH<br>CPR 18           26K8TAJT<br>P.Bodm. 28       282XKDE9<br>P.Gebelen        29ETKPXC<br>O.Krok           2BBMS7NS<br>P.Carlsb. 5      2D2ZNT4C<br>P.Mich.Aphrod.   2DTD2NIZ<br>P.Carlsb. 9      2FWF6T6I<br>P.Col. 1         2G4CF756<br>P.Lond.Copt. 2   2GAEU5QP<br>P.Harr. 1        2GCCNGJV<br>O.Deir el-Bahari 2GH3FEA2<br>P.Harrauer       2H3T6EU2<br>(etc).</code></pre>
 <br>So, copy that tabular result out of the RazorSQL GUI, paste it into a new <a href="http://www.libreoffice.org/">LibreOffice</a> spreadsheet and save it and I've got <a href="http://idp.atlantides.org/biblio-matching/zdump-content.xml">an XML file</a> that I can dip into from <a href="http://idp.atlantides.org/biblio-matching/matches2html.xsl">the XSLT I had already started on</a> to produce my HTML view.<br><br><a href="http://idp.atlantides.org/biblio-matching/matches-2012-02.html">Here's the resulting HTML file</a>.<br><br>On we go.<br><br><i>Oh, and for those paying attention to such things, XCode finished downloading about two-thirds of the way through this process ...</i>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-open-context-and/" class="u-url">Playing with PELAGIOS: Open Context and Labels</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-open-context-and/" class="u-url">Playing with PELAGIOS: Open Context and Labels</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -234,7 +228,7 @@
     </header><div class="p-summary entry-summary">
     <i>Latest in the <a href="http://horothesia.blogspot.com/search/label/pelagiosplay">Playing with PELAGIOS series</a>.</i><br><br>I've just modified the tooling and re-run the <a href="http://www.atlantides.org/pelagiosexp/pleiadic.html">Pleiades-oriented-view-of-the-GAWD report</a> to include the <a href="http://opencontext.org/export/pelagios">RDF triples just published by Open Context</a> and to exploit, when available, <span style="color: blue; font-family: 'Courier New', Courier, monospace;">rdfs:label</span> on the annotation target in order to produce more human-readable links in the HTML output. This required the addition of an <span style="color: blue; font-family: 'Courier New', Courier, monospace;">OPTIONAL</span> clause to the SPARQL query, as well as modifications to the results-processing XSLT. The new versions are indicated/linked on the report page.<br><br>You can see the results of these changes, for example, in the <a href="http://www.atlantides.org/pelagiosexp/antiochia-theoupolis-658381.html">Antiochia/Theoupolis page</a>.
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-gawd-is-live/" class="u-url">Playing with PELAGIOS: The GAWD is Live</a></h1>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/2012/02/playing-with-pelagios-gawd-is-live/" class="u-url">Playing with PELAGIOS: The GAWD is Live</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tom Elliott
@@ -251,18 +245,11 @@
     </article>
 </div>
 
-        <nav class="postindexpager"><ul class="pager">
-<li class="previous">
-                <a href="index-32.html" rel="prev">Newer posts</a>
-            </li>
-            <li class="next">
-                <a href="index-30.html" rel="next">Older posts</a>
-            </li>
-        </ul></nav>
-</div>
-        <!--End of body content-->
-
-        <footer id="footer">
+        <ul class="pager postindexpager clearfix">
+<li class="previous"><a href="index-32.html" rel="prev">Newer posts</a></li>
+            <li class="next"><a href="index-30.html" rel="next">Older posts</a></li>
+        </ul>
+<!--End of body content--><footer id="footer">
             
 Contents © 2007-2018 by <a href="mailto:ipse@paregorios.org">Tom Elliott</a>.<br><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"></a>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><strong><em>paregorios.org</em></strong></span> by
@@ -276,9 +263,15 @@ Attribution 4.0 International License</a>.
 </div>
 
 
-            <script src="assets/js/jquery.min.js"></script><script src="assets/js/bootstrap.min.js"></script><script src="assets/js/moment-with-locales.min.js"></script><script src="assets/js/fancydates.js"></script><script src="assets/js/jquery.colorbox-min.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="assets/js/jquery.min.js"></script><script src="assets/js/popper.min.js"></script><script src="assets/js/bootstrap.min.js"></script><script src="assets/js/baguetteBox.min.js"></script><script src="assets/js/moment-with-locales.min.js"></script><script src="assets/js/fancydates.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates -->
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
 </body>
 </html>
