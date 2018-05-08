@@ -83,6 +83,10 @@
 %endif
 </%def>
 
+<%def name="zotero_additional_metadata(post)">
+    <meta property="zotero:itemType" content="blogPost"/>
+</%def>
+
 ### This function is deprecated; use math_helper directly.
 <%def name="mathjax_script(post)">
     ${math.math_scripts_ifpost(post)}
