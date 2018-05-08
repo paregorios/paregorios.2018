@@ -63,7 +63,7 @@
  </url>
  <url>
   <loc>https://paregorios.org/archive.html</loc>
-  <lastmod>2018-05-08T12:07:00Z</lastmod>
+  <lastmod>2018-05-08T12:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/categories/</loc>
@@ -827,7 +827,7 @@
  </url>
  <url>
   <loc>https://paregorios.org/index-43.html</loc>
-  <lastmod>2018-05-08T12:07:00Z</lastmod>
+  <lastmod>2018-05-08T12:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/index-5.html</loc>
@@ -2596,6 +2596,10 @@
  <url>
   <loc>https://paregorios.org/posts/2018/05/zotero_item_keys/</loc>
   <lastmod>2018-05-06T12:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://paregorios.org/posts/2018/05/zotero_nikola_harmony/</loc>
+  <lastmod>2018-05-08T12:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://paregorios.org/python-on-osx/</loc>

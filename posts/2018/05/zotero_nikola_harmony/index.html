@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# 
+article: http://ogp.me/ns/article# 
+zotero: http://www.zotero.org/namespaces/export# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="How I made Zotero recognize blog posts created with Nikola as blog posts instead of web pages.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zotero-Nikola Harmony (One Simple Trick) | paregorios.org</title>
+<link href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/baguetteBox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/custom.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://paregorios.org/posts/2018/05/zotero_nikola_harmony/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="description" itemprop="description" content="How I made Zotero recognize blog posts created with Nikola as blog posts instead of web pages.">
+<meta name="author" content="Tom Elliott">
+<link rel="prev" href="../zotero_item_keys/" title="Zotero Item Keys (Again)" type="text/html">
+<meta property="og:site_name" content="paregorios.org">
+<meta property="og:title" content="Zotero-Nikola Harmony (One Simple Trick)">
+<meta property="og:url" content="https://paregorios.org/posts/2018/05/zotero_nikola_harmony/">
+<meta property="og:description" content="How I made Zotero recognize blog posts created with Nikola as blog posts instead of web pages.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-05-08T07:43:15-05:00">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="metadata">
+<meta property="article:tag" content="microblogging">
+<meta property="article:tag" content="nikola">
+<meta property="article:tag" content="prism">
+<meta property="article:tag" content="rdf">
+<meta property="article:tag" content="zotero">
+<meta property="zotero:itemType" content="blogPost">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark static-top mb-4"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://paregorios.org/">
+
+            <span id="blog-title">paregorios.org</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../../about/" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../archive.html" class="nav-link">Archive</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../resources/" class="nav-link">Resources</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../rss.xml" class="nav-link">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.md" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Zotero-Nikola Harmony (One Simple Trick)</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Tom Elliott
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2018-05-08T07:43:15-05:00" itemprop="datePublished" title="2018-05-08 07:43">2018-05-08 07:43</time></a></p>
+            
+        <p class="sourceline"><a href="index.md" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><abbr title="Too long; didn't read">TL;DR</abbr>: Modify the post-related templates in your active theme to add the following to the <code>&lt;head&gt;</code> element in each post:</p>
+<pre class="code literal-block"><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"zotero:itemType"</span> <span class="na">content</span><span class="o">=</span><span class="s">"blogPost"</span><span class="p">&gt;</span>
+</pre>
+
+
+<p>Also, make sure to define the <code>zotero</code> namespace prefix for this property in the <code>prefix</code> attribute on the <code>&lt;html&gt;</code> element. The proper value is <code>http://www.zotero.org/namespaces/export#</code>.<!-- TEASER_END --></p>
+<h3>Explanation and Example</h3>
+<p>The surest way I've found to make <a href="https://www.zotero.org/download/">the <span class="bibtitle">Firefox</span> plugin for <span class="bibtitle">Zotero Standalone</span></a> recognize my blog posts as blog posts (rather than just as generic web pages) is to insert a <code>&lt;meta&gt;</code> element in the <abbr title="HyperText Markup Language">HTML</abbr> <code>&lt;head&gt;</code> for each post. The <code>&lt;meta&gt;</code> element must make use of a <code>property</code> attribute containing the name of the <span class="bibtitle">Zotero</span> field we want to specify (in this case, <code>itemType</code>). You won't find <code>@property</code> in <a title="HTML 5.2: W3C Recommendation, 14 December 2017" href="https://www.w3.org/TR/html/">the HTML5 specification</a>; it's defined by <a href="https://www.w3.org/TR/html-rdfa/" title="HTML+RDFa 1.1 - Second Edition: Support for RDFa in HTML4 and HTML5: W3C Recommendation 17 March 2015">RDFa</a>. You also need a <code>content</code> attribute on the <code>&lt;meta&gt;</code> element to carry the value <span class="bibtitle">Zotero</span> expects, <abbr title="id est: Latin for 'that is'">i.e.</abbr>, <code>blogPost</code>. Thus:</p>
+<pre class="code literal-block"><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">prefix</span><span class="o">=</span><span class="s">"og: http://ogp.me/ns# </span>
+<span class="s">  article: http://ogp.me/ns/article# </span>
+<span class="s">  zotero: http://www.zotero.org/namespaces/export# "</span> 
+  <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Zotero Item Keys (Again) | paregorios.org<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../../../assets/css/bootstrap.min.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../../../assets/css/baguetteBox.min.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../../../assets/css/rst.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../../../assets/css/code.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../../../assets/css/theme.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../../../assets/css/custom.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"theme-color"</span> <span class="na">content</span><span class="o">=</span><span class="s">"#5670d4"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"generator"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Nikola (getnikola.com)"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"alternate"</span> <span class="na">type</span><span class="o">=</span><span class="s">"application/rss+xml"</span> <span class="na">title</span><span class="o">=</span><span class="s">"RSS"</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../../../rss.xml"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"canonical"</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://paregorios.org/posts/2018/05/zotero_item_keys/"</span><span class="p">&gt;</span>
+    <span class="c">&lt;!--[if lt IE 9]&gt;&lt;script src="../../../../assets/js/html5.js"&gt;&lt;/script&gt;&lt;![endif]--&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"author"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Tom Elliott"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"prev"</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../04/bervus/"</span> <span class="na">title</span><span class="o">=</span><span class="s">"A Roman Tombstone from Heidelberg"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/html"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"og:site_name"</span> <span class="na">content</span><span class="o">=</span><span class="s">"paregorios.org"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"og:title"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Zotero Item Keys (Again)"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"og:url"</span> <span class="na">content</span><span class="o">=</span><span class="s">"https://paregorios.org/posts/2018/05/zotero_item_keys/"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"og:description"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Back in 2012, I posted about Zotero item keys and my attempts ..."</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"og:type"</span> <span class="na">content</span><span class="o">=</span><span class="s">"article"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"article:published_time"</span> <span class="na">content</span><span class="o">=</span><span class="s">"2018-05-01T05:13:26-05:00"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"article:tag"</span> <span class="na">content</span><span class="o">=</span><span class="s">"bibliography"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"article:tag"</span> <span class="na">content</span><span class="o">=</span><span class="s">"zotero"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">"zotero:itemType"</span> <span class="na">content</span><span class="o">=</span><span class="s">"blogPost"</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</pre>
+
+
+<h3>How to implement in <span class="bibtitle">Nikola</span>
+</h3>
+<p><a href="https://getnikola.com">The <span class="bibtitle">Nikola</span> static site generator</a>, which I use for <a href="https://paregorios.org" class="bibtitle">paregorios.org</a>, uses <a href="https://en.wikipedia.org/wiki/Web_template_system">a templating system</a> to generate the HTML pages that are then deployed to the server (I author in <a href="https://daringfireball.net/projects/markdown/" class="bibtitle">Markdown</a>; <a href="https://getnikola.com/handbook.html#supported-input-formats"><span class="bibtitle">Nikola</span> supports a variety of authoring formats</a>). So, I needed to modify the template(s) used for the individual HTML files that go in the "posts" section of the site so that they include the magic <span class="bibtitle">Zotero</span> metadata described above. <a href="https://getnikola.com/handbook.html" class="bibtitle">The Nikola Handbook</a>, as currently written, makes it sound like you have to create your own custom theme (a collection of templates and <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets"><abbr title="Cascading Style Sheets">CSS</abbr></a> files) if you want to modify template behavior, but that it is not the case. You can selectively override templates from whatever stock or third-party theme you have installed and configured. </p>
+<p>I use <a href="https://github.com/getnikola/nikola/tree/master/nikola/data/themes/bootstrap4">the "bootstrap4" theme that ships with <span class="bibtitle">Nikola</span> 8</a>, rather than the default "bootblog4" (one changes this via the <code>THEME</code> variable in <code>conf.py</code>), so I went poking around in the code to find out how and where the <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;meta&gt;</code> elements get generated. I discovered that -- in the boostrap4 theme -- there are three templates involved: <code>post.tmpl</code>, <code>post_helper.tmpl</code>, and <code>base_helper.tmpl</code>. Nikola makes it easy to get copies of those templates for the purpose of overriding. I entered the following commands and the command line:</p>
+<pre class="code literal-block"><span></span>nikola theme -c post.tmpl
+nikola theme -c post_helper.tmpl
+nikola theme -c base.tmpl
+</pre>
+
+
+<p><span class="bibtitle">Nikola</span> created a <code>templates</code> subdirectory for me and copied the three files into it. Any changes I make in those copies are reflected in output the next time I run <code>nikola build</code>.</p>
+<p>To get the behavior I wanted I had to do the following:</p>
+<ol>
+<li>Modify <code>templates/base_helper.tmpl</code> to define the <code>zotero</code> namespace prefix,</li>
+<li>Modify <code>templates/post_helper.tmpl</code> to write the <span class="bibtitle">Zotero</span>-related <code>&lt;meta&gt;</code> element I want, and </li>
+<li>Modify <code>templates/post.tmpl</code> to invoke the code I added to <code>templates/post_helper.tmpl</code>.</li>
+</ol>
+<p><a href="https://github.com/paregorios/paregorios.2018/commit/3c6fd3798fd16d9a550388a93729854d51cfa7fa#diff-0ce77a451d321cc843e940a5a57847ce">Select this link for a diff via github that shows you what I changed</a>.</p>
+<h3>A Note on the <span class="bibtitle">Zotero</span> Namespace</h3>
+<p>Exceptionally devoted readers may recall that <a href="../../04/what-zotero-wants">my last post on this subject</a> prophesied the use of <a href="https://www.idealliance.org/prism-metadata">the PRISM namespace</a> to achieve Nikola+Zotero harmony. In fact, I tried adding <code>&lt;meta property="prism:genre" content="blogentry"&gt;</code> based on <a href="https://github.com/zotero/translators/blob/beb41ffeb07290e8937a0b99d313a868783487ab/RDF.js#L617">what I was seeing in the <span class="bibtitle">Zotero</span> translator code</a>, but got no joy (i.e., <span class="bibtitle">Zotero</span> was still identifying my blog posts as generic web pages). I had two options: either try to troubleshoot the relatively complex logic used in the <span class="bibtitle">Zotero</span> translator to find out what I was doing wrong or why some other value was getting prioritized over my PRISM metadata, or take a cue from <a href="https://github.com/zotero/translators/blob/beb41ffeb07290e8937a0b99d313a868783487ab/RDF.js#L684">the big assignment in the <span class="bibtitle">Zotero</span> translator code that prioritizes a <span class="bibtitle">Zotero</span> item type over any other metadata scheme</a>. Embracing laziness as a virtue -- and also noticing that in newer versions of PRISM "blogEntry" seems to have been moved from the Genre vocabulary where the <span class="bibtitle">Zotero</span> translator expects it to <a href="http://www.prismstandard.org/vocabularies/3.0/contenttype.xml">the Content Type vocabulary</a> -- I went with the latter option, got the result I was looking for, committed the changes, redeployed, wrote this blog post, and moved on to other things.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/html/" rel="tag">html</a></li>
+            <li><a class="tag p-category" href="../../../../categories/javascript/" rel="tag">javascript</a></li>
+            <li><a class="tag p-category" href="../../../../categories/metadata/" rel="tag">metadata</a></li>
+            <li><a class="tag p-category" href="../../../../categories/microblogging/" rel="tag">microblogging</a></li>
+            <li><a class="tag p-category" href="../../../../categories/nikola/" rel="tag">nikola</a></li>
+            <li><a class="tag p-category" href="../../../../categories/prism/" rel="tag">prism</a></li>
+            <li><a class="tag p-category" href="../../../../categories/rdf/" rel="tag">rdf</a></li>
+            <li><a class="tag p-category" href="../../../../categories/zotero/" rel="tag">zotero</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../zotero_item_keys/" rel="prev" title="Zotero Item Keys (Again)">Previous post</a>
+            </li>
+        </ul></nav></aside></article><!--End of body content--><footer id="footer">
+            
+Contents © 2007-2018 by <a href="mailto:ipse@paregorios.org">Tom Elliott</a>.<br><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"></a>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><strong><em>paregorios.org</em></strong></span> by
+<a xmlns:cc="http://creativecommons.org/ns#" href="https://paregorios.org/me" property="cc:attributionName" rel="cc:attributionURL">Tom Elliott</a> is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+Attribution 4.0 International License</a>.
+<br>Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/jquery.min.js"></script><script src="../../../../assets/js/popper.min.js"></script><script src="../../../../assets/js/bootstrap.min.js"></script><script src="../../../../assets/js/baguetteBox.min.js"></script><script src="../../../../assets/js/moment-with-locales.min.js"></script><script src="../../../../assets/js/fancydates.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
