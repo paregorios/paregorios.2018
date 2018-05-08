@@ -634,7 +634,9 @@ REDIRECTIONS = []
 # in a `nikola deploy` command as you like.
 DEPLOY_COMMANDS = {
     'default': [
-        "rsync -rav --delete output/ paregorios.org:/var/www/html/pa/paregorios.org"
+        'rsync -rav --exclude=resources/roman-emperors '
+        '--exclude=ahawk00 --delete output/ '
+        'paregorios.org:/var/www/html/pa/paregorios.org'
     ]
 }
 
